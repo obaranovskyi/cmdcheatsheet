@@ -1,0 +1,5 @@
+- Update README.md
+    - Describe configuration usage
+- Display configurations
+- Add rollback config to default
+- Add rollback some particular config to default

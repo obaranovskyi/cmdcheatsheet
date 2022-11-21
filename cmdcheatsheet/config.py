@@ -21,22 +21,13 @@ def setup_app():
    setup_commands_store_config()
 
 def setup_config():
-    try:
-        if not os.path.exists(config_location):
-            os.makedirs(os.path.dirname(config_location), exist_ok=True)
-            with open(config_location, 'w') as file_object:
-                json.dump(default_config, file_object, indent=4)
-    except Exception as _:
-        error("Error with config creation")
+    if not os.path.exists(config_location):
+        os.makedirs(os.path.dirname(config_location), exist_ok=True)
+        write_json(config_location, default_config)
 
 def setup_commands_store_config():
-    try:
-        if not os.path.exists(default_commands_store_location):
-            commands_store_location = get_store_location()
-            with open(commands_store_location, 'w') as file_object:
-                json.dump([], file_object, indent=4)
-    except Exception as _:
-        error("Error with store creation")
+    if not os.path.exists(default_commands_store_location):
+        write_json(get_store_location(), [])
 
 def read_config():
     with open(config_location) as f:
@@ -50,6 +41,11 @@ def get_store_location():
 def set_config_value(key, value):
     config = read_config()
     config[key] = value
-    with open(config_location, 'w') as file_object:
-        json.dump(config, file_object, indent=4)
+    write_json(config_location, config)
     
+def write_json(file_location, json_content):
+    try:
+        with open(file_location, 'w') as file_object:
+            json.dump(json_content, file_object, indent=4)
+    except Exception as _:
+        error(f"Can't write to {file_location}")
