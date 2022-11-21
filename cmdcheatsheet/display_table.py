@@ -1,9 +1,9 @@
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from json_store import get_commands, get_commands_by_includes_command_name
-from logger import red, blue, green, yellow
-from command import get_command_name_list
+from cmdcheatsheet.json_store import get_commands, get_commands_by_includes_command_name
+from cmdcheatsheet.logger import red, blue, green, yellow
+from cmdcheatsheet.command import get_command_name_list
 
 
 def display_table_view(command=''):

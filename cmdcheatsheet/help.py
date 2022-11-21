@@ -1,4 +1,4 @@
-from logger import help_details
+from cmdcheatsheet.logger import help_details
 
 
 def help(command_list):

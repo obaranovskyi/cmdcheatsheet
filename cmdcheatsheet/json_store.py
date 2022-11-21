@@ -1,8 +1,8 @@
 import os
 import json
-from models import Command
 from dataclasses import asdict
-from logger import error
+from cmdcheatsheet.models import Command
+from cmdcheatsheet.logger import error
 
 user_home_dir = os.path.expanduser('~')
 json_filename = "commands.json"
@@ -25,8 +25,12 @@ def get_commands():
     return [Command(c.get('command'), c.get('description'), c.get('id')) for c in commands]
 
 def get_index():
-    last_command = get_commands()[-1]
-    return last_command.id + 1
+    commands = get_commands()
+    if not commands:
+        return 1
+    else:
+        last_command = commands[-1]
+        return last_command.id + 1
 
 def get_commands_by_includes_command_name(command_name):
     commands = []

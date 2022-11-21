@@ -1,7 +1,8 @@
+#!/bin/python3
 import sys
 
-from logger import error
-from command_list import get_command_by_name
+from cmdcheatsheet.logger import error
+from cmdcheatsheet.command_list import get_command_by_name
 
 
 def main():
@@ -11,12 +12,14 @@ def main():
     command = sys.argv[1]
     args = sys.argv[2:]
 
+
     try:
         command_to_invoke = get_command_by_name(command)
         if command_to_invoke:
             command_to_invoke.handle(args)
         else:
             error("Please provide the valid command name.")
+
     except Exception as e:
         error(e)
 

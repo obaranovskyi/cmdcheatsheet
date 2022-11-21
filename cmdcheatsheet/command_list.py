@@ -1,8 +1,8 @@
-from models import CommandDetails, Command, CommandArgument
-from display import *
-from display_table import *
-import command as command_actions
-from help import help
+from cmdcheatsheet.models import CommandDetails, Command, CommandArgument
+from cmdcheatsheet.display import *
+from cmdcheatsheet.display_table import *
+import cmdcheatsheet.command as command_actions
+from cmdcheatsheet.help import help
 
 
 class SimpleList(CommandDetails):

@@ -1,5 +1,5 @@
-from json_store import get_commands, save_all_commands, get_index
-from logger import info, error
+from cmdcheatsheet.json_store import get_commands, save_all_commands, get_index
+from cmdcheatsheet.logger import info, error
 
 
 # TODO: this and `group_commands_by_name` might be both refactored

@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from logger import error
 
 @dataclass
 class Command:
