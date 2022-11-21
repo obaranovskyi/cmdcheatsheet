@@ -1,4 +1,4 @@
-from cmdcheatsheet.json_store import get_commands, save_all_commands, get_index
+from cmdcheatsheet.store import get_commands, save_all_commands, get_index
 from cmdcheatsheet.logger import info, error
 
 

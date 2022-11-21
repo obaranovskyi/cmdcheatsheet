@@ -3,6 +3,7 @@ from cmdcheatsheet.display import *
 from cmdcheatsheet.display_table import *
 import cmdcheatsheet.command as command_actions
 from cmdcheatsheet.help import help
+from cmdcheatsheet.config import set_config_value
 
 
 class SimpleList(CommandDetails):
@@ -108,6 +109,17 @@ class NameListCommand(CommandDetails):
         display_command_name_list(int(args[0]) if len(args) > 0 else 5)
 
 
+class SetConfigCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+            ['-sc'],
+            'Set config.',
+            [CommandArgument('key'), CommandArgument('value')])
+
+    def handler(self, args):
+        set_config_value(key=args[0], value=args[1])
+
+
 class HelpCommand(CommandDetails):
     def __init__(self):
        super().__init__(['-h', 'help', '--help'], 'Show a program help notes.')
@@ -126,6 +138,7 @@ command_list = [
     SearchCommandDetailed(),
     SearchCommandTableView(),
     NameListCommand(),
+    SetConfigCommand(),
     HelpCommand()
 ]
 

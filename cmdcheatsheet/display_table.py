@@ -1,7 +1,7 @@
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from cmdcheatsheet.json_store import get_commands, get_commands_by_includes_command_name
+from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
 from cmdcheatsheet.logger import red, blue, green, yellow
 from cmdcheatsheet.command import get_command_name_list
 
@@ -9,9 +9,7 @@ from cmdcheatsheet.command import get_command_name_list
 def display_table_view(command=''):
     all_commands = get_commands_by_includes_command_name(command) if command else get_commands()
     console = Console()
-
     table = Table(show_header=True, header_style=red)
-
     table.add_column("Id")
     table.add_column("Command")
     table.add_column("Description")

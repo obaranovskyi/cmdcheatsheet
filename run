@@ -1,1 +1,1 @@
-python -m cmdcheatsheet.cmdcheatsheet
+python -m cmdcheatsheet.cmdcheatsheet "$@"

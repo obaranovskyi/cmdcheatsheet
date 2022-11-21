@@ -1,5 +1,5 @@
 from cmdcheatsheet.command import group_commands_by_name
-from cmdcheatsheet.json_store import get_commands, get_commands_by_includes_command_name
+from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
 from cmdcheatsheet.logger import error, command_details
 
 
