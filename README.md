@@ -38,7 +38,7 @@ Display commands using table view:
 cmdcheatsheet -t
 ```
 
-### Search for a command: 
+### Search for a command
 ```bash
 cmdcheatsheet -f <command>
 ```
