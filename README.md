@@ -1,67 +1,67 @@
-# cmd-cheatsheet
+# cmdcheatsheet
 A package that allows storing terminal commands.
 
 ### Help command
 ```bash
-cmd-cheatsheet -h
+cmdcheatsheet -h
 ```
 or:
 ```bash
-cmd-cheatsheet --help
+cmdcheatsheet --help
 ```
 
 ### Add command
 ```bash
-cmd-cheatsheet -a <command> <command_description>
+cmdcheatsheet -a <command> <command_description>
 ```
 for example:
 ```bash
-cmd-cheatsheet -a "ls" "list directory content"
+cmdcheatsheet -a "ls" "list directory content"
 ```
 
 ### Display command
 
 Display all commands:
 ```bash
-cmd-cheatsheet -p
+cmdcheatsheet -p
 ```
 or:
 ```bash
-cmd-cheatsheet
+cmdcheatsheet
 ```
 Display commands along with ids:
 ```
-cmd-cheatsheet -i
+cmdcheatsheet -i
 ```
 Display commands using table view:
 ```bash
-cmd-cheatsheet -t
+cmdcheatsheet -t
 ```
 
 ### Search for a command: 
 ```bash
-cmd-cheatsheet -f <command>
+cmdcheatsheet -f <command>
 ```
 Search for a command and show it along with an id:
 ```bash
-cmd-cheatsheet -fi <command>
+cmdcheatsheet -fi <command>
 ```
 Search for a command and show it using the table view:
 ```bash
-cmd-cheatsheet -ft <command>
+cmdcheatsheet -ft <command>
 ```
 
 ### Update command
 ```bash
-cmd-cheatsheet -u <command_id> <command> <command_description>
+cmdcheatsheet -u <command_id> <command> <command_description>
 ```
 
 ### Remove command
 ```bash
-cmd-cheatsheet -d <command_id>
+cmdcheatsheet -d <command_id>
 ```
 
 ### Show all command names
 ```bash
-cmd-cheatsheet -nl
+cmdcheatsheet -nl
 ```

@@ -6,7 +6,7 @@ from logger import error
 
 user_home_dir = os.path.expanduser('~')
 json_filename = "commands.json"
-json_file_dir = f"{user_home_dir}/.config/cmd-cheatsheet/{json_filename}"
+json_file_dir = f"{user_home_dir}/.config/cmdcheatsheet/{json_filename}"
 
 
 def setup_config():

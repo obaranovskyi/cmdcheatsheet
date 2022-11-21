@@ -11,14 +11,14 @@ VERSION = '0.0.1'
 DESCRIPTION = 'Terminal commands cheat sheet helper'
 
 setup(
-    name="cmd-cheatsheet",
+    name="cmdcheatsheet",
     version=VERSION,
     author="obaranovskyi (Oleh Baranovskyi)",
     author_email="<oleh.baranovskyi.dev.acc@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
-    url="https://github.com/obaranovskyi/cmd-cheatcheat",
+    url="https://github.com/obaranovskyi/cmdcheatsheet",
     packages=find_packages(),
     install_requires=['rich'],
     keywords=['python', 'command', 'terminal', 'console', 'utilities'],
