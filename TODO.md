@@ -1,4 +1,4 @@
 - Update README.md
     - Describe configuration usage
-- Add rollback config to default
-- Add rollback some particular config to default
+- Validate commands.json path when setting the configuration
+- Remove configurations (but not required)

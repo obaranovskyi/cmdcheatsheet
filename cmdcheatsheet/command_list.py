@@ -3,7 +3,8 @@ from cmdcheatsheet.display import *
 from cmdcheatsheet.display_table import *
 import cmdcheatsheet.command as command_actions
 from cmdcheatsheet.help import help
-from cmdcheatsheet.config import set_config_value
+from cmdcheatsheet.config import *
+from rich.prompt import Confirm
 
 
 class SimpleListCommand(CommandDetails):
@@ -117,14 +118,51 @@ class SetConfigCommand(CommandDetails):
             [CommandArgument('key'), CommandArgument('value')])
 
     def handler(self, args):
-        set_config_value(key=args[0], value=args[1])
+        key = args[0]
+        if validate_configuration(key):
+            set_config_value(key=key, value=args[1])
 
 class DisplayConfigCommand(CommandDetails):
     def __init__(self):
-       super().__init__(['-dc'], 'Display config.')
+       super().__init__(
+            ['-dc'],
+            'Display configurations.',
+            [CommandArgument('key', False)])
+
+    def handler(self, args):
+        if args:
+            display_configurations(args[0])
+        else:
+            display_configurations()
+
+class DisplayAvailableConfigurationsCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(['-dac'], 'Display available configurations.')
 
     def handler(self, _):
-        display_config()
+        display_available_configurations()
+
+class SetConfigToDefaultCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(['-sctd'], 'Set the configuration to default.')
+
+    def handler(self, _):
+        is_yes = Confirm.ask("Are you sure you want to set your config to default?")
+        if is_yes:
+            set_config_to_default()
+
+class SetSingleConfigToDefaultCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-ssctd'],
+        'Set a single configuration to default.',
+        [CommandArgument('key')])
+
+    def handler(self, args):
+        key = args[0]
+        is_yes = Confirm.ask(f"Are you sure you want to set '{key}' to default?")
+        if is_yes:
+            set_single_config_value_to_default(key)
 
 class HelpCommand(CommandDetails):
     def __init__(self):
@@ -134,19 +172,31 @@ class HelpCommand(CommandDetails):
         help(command_list)
 
 command_list = [
+    # Display commands
     SimpleListCommand(),
     SimpleDetailedListCommand(),
     TableViewCommand(),
+
+    # Crud commands
     AddCommand(),
     UpdateCommand(),
     DeleteCommand(),
+
+    # Search commands
     SearchCommand(),
     SearchCommandDetailed(),
     SearchCommandTableView(),
+
+    # Global info commands
     NameListCommand(),
-    SetConfigCommand(),
+    HelpCommand(),
+    
+    # Config commands
     DisplayConfigCommand(),
-    HelpCommand()
+    DisplayAvailableConfigurationsCommand(),
+    SetConfigCommand(),
+    SetConfigToDefaultCommand(),
+    SetSingleConfigToDefaultCommand()
 ]
 
 def get_command_by_name(command_name):
