@@ -3,7 +3,7 @@ A package that allows storing terminal commands.
 
 ---
 
-## Help command
+### Help command
 ```bash
 cmdcheatsheet -h
 ```
@@ -12,7 +12,7 @@ or:
 cmdcheatsheet --help
 ```
 
-## Add command
+### Add command
 ```bash
 cmdcheatsheet -a <command> <command_description>
 ```
@@ -21,7 +21,7 @@ for example:
 cmdcheatsheet -a "ls" "list directory content"
 ```
 
-## Display commands
+### Display commands
 
 Display all commands:
 ```bash
@@ -40,7 +40,7 @@ Display commands using table view:
 cmdcheatsheet -t
 ```
 
-## Search for a command
+### Search for a command
 ```bash
 cmdcheatsheet -f <command>
 ```
@@ -53,17 +53,17 @@ Search for a command and show it using the table view:
 cmdcheatsheet -ft <command>
 ```
 
-## Update command
+### Update command
 ```bash
 cmdcheatsheet -u <command_id> <command> <command_description>
 ```
 
-## Remove command
+### Remove command
 ```bash
 cmdcheatsheet -d <command_id>
 ```
 
-## Show all command names
+### Show all command names
 ```bash
 cmdcheatsheet -nl
 ```
@@ -71,10 +71,10 @@ cmdcheatsheet -nl
 # Configuration
 cmdcheatsheet configuration folder is located at `~/.config/cmdcheatsheet`.
 
-## Available configurations
+### Available configurations
 * `commandsStoreLocation` - Path to file in JSON format that consists of the command list.
 
-## Display configuration
+### Display configuration
 ```bash
 cmdcheatsheet -dc
 ```
@@ -83,23 +83,23 @@ or display configuration by key:
 cmdcheatsheet -dc <config_key>
 ```
 
-## Display available configurations
+### Display available configurations
 This command displays all available configurations. Each command consists of a key and an explanation.
 ```bash
 cmdcheatsheet -dac
 ```
 
-## Set configuration
+### Set configuration
 ```bash
 cmdcheatsheet -sc <configuration_key> <configuration_value>
 ```
 
-## Set configuration to default
+### Set configuration to default
 ```bash
 cmdcheatsheet -sctd
 ```
 
-## Set a single config value
+### Set a single config value
 ```bash
 cmdcheatsheet -ssctd <configuration_key>
 ```
