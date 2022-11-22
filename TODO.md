@@ -2,3 +2,4 @@
     - Describe configuration usage
 - Validate commands.json path when setting the configuration
 - Remove configurations (but not required)
+- Add full command names
