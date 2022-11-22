@@ -1,7 +1,7 @@
 import json
 from dataclasses import asdict
 from cmdcheatsheet.models import Command
-from cmdcheatsheet.config import get_store_location
+from cmdcheatsheet.config import get_store_location, write_json
 
 
 def get_commands():
@@ -27,5 +27,5 @@ def get_commands_by_includes_command_name(command_name):
 
 def save_all_commands(commands):
     commands_to_save = [asdict(c) for c in commands]
-    with open(get_store_location(), 'w') as file_object:
-        json.dump(commands_to_save, file_object, indent=4)
+    write_json(get_store_location(), commands_to_save)
+

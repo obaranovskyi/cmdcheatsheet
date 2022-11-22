@@ -119,8 +119,9 @@ class SetConfigCommand(CommandDetails):
 
     def handler(self, args):
         key = args[0]
-        if validate_configuration(key):
-            set_config_value(key=key, value=args[1])
+        value = args[1]
+        if validate_configuration(key, value):
+            set_config_value(key=key, value=value)
 
 class DisplayConfigCommand(CommandDetails):
     def __init__(self):
