@@ -88,3 +88,20 @@ def is_valid_custom_commands_location(store_location):
             return isinstance(commands, list)
     except Exception as _: 
         return False
+
+def remove_config(key):
+    if key in default_config.configuration_keys():
+        is_yes = Confirm.ask(
+            f"This config is required. It can't be removed. But it will be set to default. Are you ok?"
+        )
+        if is_yes:
+            set_single_config_value_to_default(key)
+        return
+    config = read_config()
+    if key not in config:
+        error("No config was found with such a key.")
+    else:
+        del config[key]
+        write_json(config_location, config)
+
+    

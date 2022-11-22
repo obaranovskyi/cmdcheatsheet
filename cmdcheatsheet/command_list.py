@@ -123,6 +123,16 @@ class SetConfigCommand(CommandDetails):
         if validate_configuration(key, value):
             set_config_value(key=key, value=value)
 
+class RemoveConfigCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+            ['-rc'],
+            'Remove a config.',
+            [CommandArgument('key')])
+
+    def handler(self, args):
+        remove_config(key=args[0])
+
 class DisplayConfigCommand(CommandDetails):
     def __init__(self):
        super().__init__(
@@ -196,6 +206,7 @@ command_list = [
     DisplayConfigCommand(),
     DisplayAvailableConfigurationsCommand(),
     SetConfigCommand(),
+    RemoveConfigCommand(),
     SetConfigToDefaultCommand(),
     SetSingleConfigToDefaultCommand()
 ]

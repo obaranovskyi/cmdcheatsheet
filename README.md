@@ -94,6 +94,11 @@ cmdcheatsheet -dac
 cmdcheatsheet -sc <configuration_key> <configuration_value>
 ```
 
+### Remove configuration by key
+```bash
+cmdcheatsheet -rc <configuration_key>
+```
+
 ### Set configuration to default
 ```bash
 cmdcheatsheet -sctd

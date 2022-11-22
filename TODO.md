@@ -1,2 +1,0 @@
-- Remove configurations (but not required)
-- Add full command names
