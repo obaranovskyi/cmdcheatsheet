@@ -20,3 +20,7 @@ def command_details(command, display_index, id_column_length=5):
 def help_details(command_name, description):
     print(f"[{blue}]  {command_name}[{green}] - {description}")
 
+def config_details(config_key, config_value):
+    print(f"[{blue}] {config_key}[{green}]: {config_value}")
+    
+

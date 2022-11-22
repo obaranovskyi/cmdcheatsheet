@@ -1,6 +1,7 @@
 from cmdcheatsheet.command import group_commands_by_name
 from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
-from cmdcheatsheet.logger import error, command_details
+from cmdcheatsheet.logger import error, command_details, config_details
+from cmdcheatsheet.config import read_config
 
 
 def display_commands(display_index=False):
@@ -23,3 +24,8 @@ def calc_id_column_size(commands):
     command_ids = [c.id for c in commands]
     highest_command_id = max(command_ids) if command_ids else ""
     return len(str(highest_command_id))
+
+def display_config():
+    config = read_config()
+    for key in config:
+        config_details(key, config.get(key))

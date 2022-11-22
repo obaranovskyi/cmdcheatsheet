@@ -6,7 +6,7 @@ from cmdcheatsheet.help import help
 from cmdcheatsheet.config import set_config_value
 
 
-class SimpleList(CommandDetails):
+class SimpleListCommand(CommandDetails):
     def __init__(self):
        super().__init__(['-p', 'ls'], 'Display all commands.')
 
@@ -14,7 +14,7 @@ class SimpleList(CommandDetails):
         display_commands()
 
 
-class SimpleDetailedList(CommandDetails):
+class SimpleDetailedListCommand(CommandDetails):
     def __init__(self):
        super().__init__(['-i', 'lsi'], 'Display all commands, including all details such as ids, etc., all commands.')
 
@@ -22,7 +22,7 @@ class SimpleDetailedList(CommandDetails):
         display_commands(True)
         
 
-class TableView(CommandDetails):
+class TableViewCommand(CommandDetails):
     def __init__(self):
        super().__init__(['-t', 'lst'], 'Display all commands using a table view.')
 
@@ -119,6 +119,12 @@ class SetConfigCommand(CommandDetails):
     def handler(self, args):
         set_config_value(key=args[0], value=args[1])
 
+class DisplayConfigCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(['-dc'], 'Display config.')
+
+    def handler(self, _):
+        display_config()
 
 class HelpCommand(CommandDetails):
     def __init__(self):
@@ -128,9 +134,9 @@ class HelpCommand(CommandDetails):
         help(command_list)
 
 command_list = [
-    SimpleList(),
-    SimpleDetailedList(),
-    TableView(),
+    SimpleListCommand(),
+    SimpleDetailedListCommand(),
+    TableViewCommand(),
     AddCommand(),
     UpdateCommand(),
     DeleteCommand(),
@@ -139,6 +145,7 @@ command_list = [
     SearchCommandTableView(),
     NameListCommand(),
     SetConfigCommand(),
+    DisplayConfigCommand(),
     HelpCommand()
 ]
 
