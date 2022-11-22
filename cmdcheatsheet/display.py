@@ -31,7 +31,7 @@ def display_configurations(key=''):
         if key in default_config.configuration_keys():
             config_details(key, config[key])
         else:
-            error(f"No configuration found with name {key}")
+            error(f"No configuration found with the name {key}")
     else:
         for key in config:
             config_details(key, config[key])
