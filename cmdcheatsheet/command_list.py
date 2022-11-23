@@ -190,7 +190,7 @@ class SetSingleConfigToDefaultCommand(CommandDetails):
 class AddAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-aasl'],
+        ['-aas'],
         "Add alternative commands store (JSON file) location.",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -212,7 +212,7 @@ class AddAlternativeStoreLocationCommand(CommandDetails):
 class UpdateAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-uasl'],
+        ['-uas'],
         "Update alternative commands store (JSON file).",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -229,7 +229,7 @@ class UpdateAlternativeStoreLocationCommand(CommandDetails):
 class DeleteAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-dasl'],
+        ['-das'],
         "Delete alternative commands store (JSON file).",
         [CommandArgument('store_name')])
 
@@ -243,8 +243,8 @@ class DeleteAlternativeStoreLocationCommand(CommandDetails):
 class DisplayAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-dasld'],
-        "Display alternative stores.")
+        ['-dasd'],
+        "Display alternative stores details.")
 
     def handler(self, _):
         display_alternative_stores()
@@ -252,8 +252,9 @@ class DisplayAlternativeStoreLocationCommand(CommandDetails):
 class SwitchToAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-stasl'],
-        "Switch to alternative store location.")
+        ['-stas'],
+        "Switch to alternative store location.",
+        [CommandArgument('store_name')])
 
     def handler(self, args):
         store_name = args[0]

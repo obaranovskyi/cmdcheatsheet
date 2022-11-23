@@ -81,6 +81,8 @@ cmdcheatsheet configuration folder is located at `~/.config/cmdcheatsheet`.
 
 #### Available configurations
 * `commandsStoreLocation` - Path to file in JSON format that consists of the command list.
+* `alternativeStoreLocations` - Path list to JSON files that might be used as an alternative commands store location.
+Every item in the list has a `storeName` property, which is just a store name and the second property is `storeLocation`, responsible for the path to the commands store (JSON file location).
 
 #### Display configuration
 ```bash
@@ -115,4 +117,34 @@ cmdcheatsheet -sctd
 #### Set a single config value
 ```bash
 cmdcheatsheet -ssctd <configuration_key>
+```
+
+# Alternative commands stores
+It's possible to have multiple command stores and switch between them.
+In this way, you'll be able to have separate configs for windows, Linux, and OSX, or in case you want to split the config in some other way.
+This feature is called alternative command stores. 
+
+### Add alternative commands store
+```bash
+cmdcheatsheet -aas <store_name> <store_location>
+```
+
+### Update alternative commands store 
+```bash
+cmdcheatsheet -uas <store_name> <store_location>
+```
+
+### Delete alternative commands store
+```bash
+cmdcheatsheet -das <store_name>
+```
+
+### Display alternative commands store details
+```bash
+cmdcheatsheet -dasd
+```
+
+### Switch to alternative commands store
+```bash
+cmdcheatsheet -stas <store_name>
 ```
