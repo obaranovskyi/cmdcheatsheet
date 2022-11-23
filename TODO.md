@@ -1,4 +1,2 @@
-- update README.md to show alternative store configuration
-- check if the current location exists in the alternative locations
 - consider creating alternative store model
 - consider using enum for config properties

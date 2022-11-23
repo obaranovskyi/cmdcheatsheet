@@ -46,4 +46,12 @@ def switch_to_alternative_store(store_name):
     store_location = alternative_store.get('storeLocation')
     set_config_value('commandsStoreLocation', store_location)
 
-    
+def get_applied_alternative_store_name():
+    alternative_store_name = None
+    config = read_config()
+    commands_store_location = config.get('commandsStoreLocation')
+    alternative_stores = config.get('alternativeStoreLocations')
+    for store in alternative_stores:
+        if store.get('storeLocation') == commands_store_location:
+            alternative_store_name = store.get('storeName')
+    return alternative_store_name if alternative_store_name else ''

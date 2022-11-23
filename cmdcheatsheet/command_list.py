@@ -8,6 +8,7 @@ from cmdcheatsheet.config import *
 from cmdcheatsheet.alternative_store import *
 from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
 from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
+from cmdcheatsheet.logger import yellow, blue
 
 
 class SimpleListCommand(CommandDetails):
@@ -269,6 +270,19 @@ class SwitchToAlternativeStoreLocationCommand(CommandDetails):
         else: 
             show_store_with_name_not_exists(store_name)
 
+class AppliedAlternativeStoreNameCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-daasn'],
+        "Display the name of applied alternative store.")
+
+    def handler(self, _):
+        applied_store_name = get_applied_alternative_store_name()
+        if applied_store_name: 
+            print(f"[{blue}]{applied_store_name}")
+        else:
+            print(f"[{yellow}]None of the alternative stores were applied.")
+
 
 command_list = [
     # Display commands
@@ -302,7 +316,8 @@ command_list = [
     UpdateAlternativeStoreLocationCommand(),
     DeleteAlternativeStoreLocationCommand(),
     DisplayAlternativeStoreLocationCommand(),
-    SwitchToAlternativeStoreLocationCommand()
+    SwitchToAlternativeStoreLocationCommand(),
+    AppliedAlternativeStoreNameCommand()
 ]
 
 def get_command_by_name(command_name):

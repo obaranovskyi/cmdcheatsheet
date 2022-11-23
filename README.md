@@ -166,3 +166,8 @@ cmdcheatsheet -dasd
 ```bash
 cmdcheatsheet -stas <store_name>
 ```
+
+### Display applied alternative store
+```bash
+cmdcheatsheet -daasn
+```
