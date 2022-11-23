@@ -249,6 +249,26 @@ class DisplayAlternativeStoreLocationCommand(CommandDetails):
     def handler(self, _):
         display_alternative_stores()
 
+class SwitchToAlternativeStoreLocationCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-stasl'],
+        "Switch to alternative store location.")
+
+    def handler(self, args):
+        store_name = args[0]
+        if is_existing_store_name(store_name):
+            is_yes = Confirm.ask(
+                "If you switch the location, your config 'commandsStoreLocation' " +
+                "will be overridden, and you'll lose its value.\n" +
+                "Do you want to proceed?"
+            )
+            if is_yes:
+                switch_to_alternative_store(store_name)
+        else: 
+            show_store_with_name_not_exists(store_name)
+
+
 command_list = [
     # Display commands
     SimpleListCommand(),
@@ -280,8 +300,8 @@ command_list = [
     AddAlternativeStoreLocationCommand(),
     UpdateAlternativeStoreLocationCommand(),
     DeleteAlternativeStoreLocationCommand(),
-    DisplayAlternativeStoreLocationCommand()
-    
+    DisplayAlternativeStoreLocationCommand(),
+    SwitchToAlternativeStoreLocationCommand()
 ]
 
 def get_command_by_name(command_name):

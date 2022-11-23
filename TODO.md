@@ -1,4 +1,4 @@
 - update README.md to show alternative store configuration
-- use enum for config properties
-- implement store switch
-- create alternative store model
+- check if the current location exists in the alternative locations
+- consider creating alternative store model
+- consider using enum for config properties

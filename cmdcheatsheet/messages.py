@@ -1,7 +1,7 @@
 from cmdcheatsheet.logger import error
 
 def show_store_with_name_not_exists(store_name):
-    error(f"Store with the name {store_name} does not exists.")
+    error(f"A store with the name {store_name} does not exist.")
 
 def show_invalid_store_location_message():
     error("Something is wrong with your JSON file. The issue might appear due to the following:\n" +

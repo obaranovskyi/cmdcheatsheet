@@ -1,5 +1,4 @@
-from cmdcheatsheet.logger import error
-from cmdcheatsheet.config import read_config
+from cmdcheatsheet.config import read_config, set_config_value
 from cmdcheatsheet.json_file import write_json
 from cmdcheatsheet.consts import config_location
 from cmdcheatsheet.display import display_alternative_store
@@ -38,3 +37,13 @@ def exclude_by_name_filter(alternative_stores, store_name):
 def display_alternative_stores():
     display_alternative_store(read_config().get('alternativeStoreLocations'))
 
+def find_alternative_store_by_name(store_name):
+    config = read_config()
+    return next((store for store in config.get('alternativeStoreLocations') if store.get('storeName') == store_name), None)
+
+def switch_to_alternative_store(store_name):
+    alternative_store = find_alternative_store_by_name(store_name)
+    store_location = alternative_store.get('storeLocation')
+    set_config_value('commandsStoreLocation', store_location)
+
+    
