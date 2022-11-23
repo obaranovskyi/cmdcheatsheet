@@ -20,7 +20,17 @@ def command_details(command, display_index, id_column_length=5):
 def help_details(command_name, description):
     print(f"[{blue}]  {command_name}[{green}] - {description}")
 
+def alternative_store_details(store_name, store_value):
+    print(f"[{blue}]  {store_name}[{green}] - {store_value}")
+
 def config_details(config_key, config_value):
-    print(f"[{blue}] {config_key}[{green}]: {config_value}")
+    if isinstance(config_value, list):
+        print(f"[{blue}] {config_key}:")
+        for config_dict in config_value:
+            print(f"[{blue}]   {'-'*5}")
+            for key in config_dict:
+                config_details('  '+key, config_dict.get(key))
+    else:
+        print(f"[{blue}] {config_key}[{green}]: {config_value}")
     
 

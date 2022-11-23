@@ -1,10 +1,13 @@
+from rich.prompt import Confirm
 from cmdcheatsheet.models import CommandDetails, Command, CommandArgument
 from cmdcheatsheet.display import *
 from cmdcheatsheet.display_table import *
 import cmdcheatsheet.command as command_actions
 from cmdcheatsheet.help import help
 from cmdcheatsheet.config import *
-from rich.prompt import Confirm
+from cmdcheatsheet.alternative_store import *
+from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
+from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
 
 
 class SimpleListCommand(CommandDetails):
@@ -110,6 +113,14 @@ class NameListCommand(CommandDetails):
         display_command_name_list(int(args[0]) if len(args) > 0 else 5)
 
 
+class HelpCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(['-h', 'help', '--help'], 'Show a program help notes.')
+
+    def handler(self, _):
+        help(command_list)
+
+
 class SetConfigCommand(CommandDetails):
     def __init__(self):
        super().__init__(
@@ -175,12 +186,68 @@ class SetSingleConfigToDefaultCommand(CommandDetails):
         if is_yes:
             set_single_config_value_to_default(key)
 
-class HelpCommand(CommandDetails):
+
+class AddAlternativeStoreLocationCommand(CommandDetails):
     def __init__(self):
-       super().__init__(['-h', 'help', '--help'], 'Show a program help notes.')
+       super().__init__(
+        ['-aasl'],
+        "Add alternative commands store (JSON file) location.",
+        [CommandArgument('store_name'), CommandArgument('store_location')])
+
+    def handler(self, args):
+        store_name = args[0]
+        store_location = args[1]
+        if not is_valid_custom_commands_location(store_location):
+            show_invalid_store_location_message()
+        elif is_existing_store_name(store_name):
+            is_yes = Confirm.ask(
+                f"Store with the name '{store_name}' already exists. " +
+                "Do you want to override an existing one?")
+            if is_yes:
+                update_alternative_store(store_name=store_name, store_location=store_location)
+        else: 
+            add_alternative_store(store_name=store_name, store_location=store_location)
+
+
+class UpdateAlternativeStoreLocationCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-uasl'],
+        "Update alternative commands store (JSON file).",
+        [CommandArgument('store_name'), CommandArgument('store_location')])
+
+    def handler(self, args):
+        store_name = args[0]
+        store_location = args[1]
+        if not is_existing_store_name(store_name):
+            show_store_with_name_not_exists(store_name)            
+        elif not is_valid_custom_commands_location(store_location):
+            show_invalid_store_location_message()
+        else: 
+            update_alternative_store(store_name=store_name, store_location=store_location)
+
+class DeleteAlternativeStoreLocationCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-dasl'],
+        "Delete alternative commands store (JSON file).",
+        [CommandArgument('store_name')])
+
+    def handler(self, args):
+        store_name = args[0]
+        if is_existing_store_name(store_name):
+            delete_alternative_store(store_name=store_name)
+        else: 
+            show_store_with_name_not_exists(store_name)
+
+class DisplayAlternativeStoreLocationCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+        ['-dasld'],
+        "Display alternative stores.")
 
     def handler(self, _):
-        help(command_list)
+        display_alternative_stores()
 
 command_list = [
     # Display commands
@@ -208,7 +275,13 @@ command_list = [
     SetConfigCommand(),
     RemoveConfigCommand(),
     SetConfigToDefaultCommand(),
-    SetSingleConfigToDefaultCommand()
+    SetSingleConfigToDefaultCommand(),
+    # Config: Alternative store location 
+    AddAlternativeStoreLocationCommand(),
+    UpdateAlternativeStoreLocationCommand(),
+    DeleteAlternativeStoreLocationCommand(),
+    DisplayAlternativeStoreLocationCommand()
+    
 ]
 
 def get_command_by_name(command_name):

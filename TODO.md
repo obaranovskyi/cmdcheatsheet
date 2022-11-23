@@ -1,0 +1,4 @@
+- update README.md to show alternative store configuration
+- use enum for config properties
+- implement store switch
+- create alternative store model
