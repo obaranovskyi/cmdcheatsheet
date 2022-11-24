@@ -1,0 +1,11 @@
+source ./set_version
+
+if [ "$is_version_updated" = true ];
+then
+  rm -rf dist
+  python -m build
+  twine upload dist/* --verbose
+else 
+  echo "version doesn't updated"
+fi
+

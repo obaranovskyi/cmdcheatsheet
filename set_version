@@ -1,0 +1,17 @@
+# INFO: '' has to be to work on OSX
+# https://stackoverflow.com/questions/12696125/sed-edit-file-in-place/12696224#12696224
+
+version_from=$1
+version_to=$2
+is_version_updated=false
+
+if [ ! -z "$version_from" ] && [ ! -z "$version_to" ];
+then
+  sed -i '' "s/${version_from}/${version_to}/g" setup.cfg
+  sed -i '' "s/${version_from}/${version_to}/g" setup.py
+  sed -i '' "s/${version_from}/${version_to}/g" cmdcheatsheet/consts.py
+  is_version_updated=true
+else
+  echo "Please provide all arguments."
+fi
+
