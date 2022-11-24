@@ -252,7 +252,7 @@ class DeleteAlternativeStore(CommandDetails):
     def handler(self, args):
         store_name = args[0]
         if is_existing_store_name(store_name):
-            delete_alt_store(store_name=store_name)
+            delete_alt_store(store_name)
         else: 
             show_store_with_name_not_exists(store_name)
 
