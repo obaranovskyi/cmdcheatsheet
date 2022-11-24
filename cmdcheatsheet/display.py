@@ -1,4 +1,5 @@
 from cmdcheatsheet.command import group_commands_by_name
+from cmdcheatsheet.consts import ALT_STORE_LOCATION_CONF_NAME, ALT_STORE_NAME_CONF_NAME
 from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
 from cmdcheatsheet.logger import error, command_details, config_details, alt_store_details
 from cmdcheatsheet.config import read_config, DEFAULT_CONFIG
@@ -42,5 +43,5 @@ def display_available_configurations():
 
 def display_alt_store(alt_stores):
     for store in alt_stores:
-        alt_store_details(store.get('storeName'), store.get('storeLocation'))
+        alt_store_details(store.get(ALT_STORE_NAME_CONF_NAME), store.get(ALT_STORE_LOCATION_CONF_NAME))
 

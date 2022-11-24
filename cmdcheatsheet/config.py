@@ -3,7 +3,7 @@ import json
 from rich.prompt import Confirm
 from cmdcheatsheet.logger import error
 from cmdcheatsheet.json_file import write_json
-from cmdcheatsheet.consts import CONFIG_LOCATION, DEFAULT_CONFIG 
+from cmdcheatsheet.consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF_NAME, DEFAULT_CONFIG 
 
 
 def setup_config():
@@ -18,7 +18,7 @@ def read_config():
 
 def get_store_location():
     config = read_config()
-    return config.get('currentStoreLocation')
+    return config.get(CURR_STORE_LOCATION_CONF_NAME)
 
 def set_config_value(key, value):
     config = read_config()

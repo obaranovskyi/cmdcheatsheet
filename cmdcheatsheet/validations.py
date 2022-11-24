@@ -1,6 +1,6 @@
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.consts import DEFAULT_CONFIG
+from cmdcheatsheet.consts import CURR_STORE_LOCATION_CONF_NAME, DEFAULT_CONFIG
 from cmdcheatsheet.messages import show_invalid_store_location_message
 
 def validate_configuration(config_key, config_value):
@@ -12,7 +12,7 @@ def validate_configuration(config_key, config_value):
             " Therefore, it won't have any impact. Do you still want to add it?"
         )
 
-    if config_key == 'currentStoreLocation' and not is_valid_custom_commands_location(config_value):
+    if config_key == CURR_STORE_LOCATION_CONF_NAME and not is_valid_custom_commands_location(config_value):
         show_invalid_store_location_message()
         return False
     return valid
