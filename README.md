@@ -19,6 +19,10 @@ or:
 ```bash
 cmdcheatsheet --help
 ```
+here is the output:
+```
+
+```
 
 #### Add command
 ```bash
