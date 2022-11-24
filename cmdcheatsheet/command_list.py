@@ -1,11 +1,11 @@
 from rich.prompt import Confirm
-from cmdcheatsheet.models import CommandDetails, Command, CommandArgument
+from cmdcheatsheet.models import AlternativeStore, CommandDetails, Command, CommandArgument
 from cmdcheatsheet.display import *
 from cmdcheatsheet.display_table import *
 import cmdcheatsheet.command as command_actions
 from cmdcheatsheet.help import help
 from cmdcheatsheet.config import *
-from cmdcheatsheet.alternative_store import *
+from cmdcheatsheet.alt_store import *
 from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
 from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
 from cmdcheatsheet.logger import yellow, blue, version_details
@@ -213,18 +213,17 @@ class AddAlternativeStore(CommandDetails):
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
     def handler(self, args):
-        store_name = args[0]
-        store_location = args[1]
-        if not is_valid_custom_commands_location(store_location):
+        alt_store = AlternativeStore(args[0], args[1])
+        if not is_valid_custom_commands_location(alt_store.location):
             show_invalid_store_location_message()
-        elif is_existing_store_name(store_name):
+        elif is_existing_store_name(alt_store.name):
             is_yes = Confirm.ask(
-                f"Store with the name '{store_name}' already exists. " +
+                f"Store with the name '{alt_store.name}' already exists. " +
                 "Do you want to override an existing one?")
             if is_yes:
-                update_alternative_store(store_name=store_name, store_location=store_location)
+                update_alt_store(alt_store)
         else: 
-            add_alternative_store(store_name=store_name, store_location=store_location)
+            add_alt_store(alt_store)
 
 
 class UpdateAlternativeStore(CommandDetails):
@@ -235,14 +234,13 @@ class UpdateAlternativeStore(CommandDetails):
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
     def handler(self, args):
-        store_name = args[0]
-        store_location = args[1]
-        if not is_existing_store_name(store_name):
-            show_store_with_name_not_exists(store_name)            
-        elif not is_valid_custom_commands_location(store_location):
+        alt_store = AlternativeStore(args[0], args[1])
+        if not is_existing_store_name(alt_store.name):
+            show_store_with_name_not_exists(alt_store.name)            
+        elif not is_valid_custom_commands_location(alt_store.location):
             show_invalid_store_location_message()
         else: 
-            update_alternative_store(store_name=store_name, store_location=store_location)
+            update_alt_store(alt_store)
 
 class DeleteAlternativeStore(CommandDetails):
     def __init__(self):
@@ -254,7 +252,7 @@ class DeleteAlternativeStore(CommandDetails):
     def handler(self, args):
         store_name = args[0]
         if is_existing_store_name(store_name):
-            delete_alternative_store(store_name=store_name)
+            delete_alt_store(store_name=store_name)
         else: 
             show_store_with_name_not_exists(store_name)
 
@@ -265,7 +263,7 @@ class DisplayAvailableAlternativeStores(CommandDetails):
         "Display available alternative stores.")
 
     def handler(self, _):
-        display_alternative_stores()
+        display_alt_stores()
 
 class SwitchToAlternativeStore(CommandDetails):
     def __init__(self):
@@ -283,7 +281,7 @@ class SwitchToAlternativeStore(CommandDetails):
                 "Do you want to proceed?"
             )
             if is_yes:
-                switch_to_alternative_store(store_name)
+                switch_to_alt_store(store_name)
         else: 
             show_store_with_name_not_exists(store_name)
 
@@ -294,7 +292,7 @@ class DisplayAppliedAlternativeStoreName(CommandDetails):
         "Display the name of applied alternative store.")
 
     def handler(self, _):
-        applied_store_name = get_applied_alternative_store_name()
+        applied_store_name = get_applied_alt_store_name()
         if applied_store_name: 
             print(f"[{blue}]{applied_store_name}")
         else:

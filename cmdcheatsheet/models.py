@@ -24,6 +24,11 @@ class DefaultConfigurations:
         return [config.key for config in self.configs]
 
 @dataclass
+class AlternativeStore:
+    name: str
+    location: str
+
+@dataclass
 class Command:
     command: str
     description: str

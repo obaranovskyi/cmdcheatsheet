@@ -20,7 +20,7 @@ def command_details(command, display_index, id_column_length=5):
 def help_details(command_name, description):
     print(f"[{blue}]  {command_name}[{green}] - {description}")
 
-def alternative_store_details(store_name, store_value):
+def alt_store_details(store_name, store_value):
     print(f"[{blue}]  {store_name}[{green}] - {store_value}")
 
 def config_details(config_key, config_value):
