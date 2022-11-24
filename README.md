@@ -26,14 +26,13 @@ cmdcheatsheet -a <command> <command_description>
 ```
 for example:
 ```bash
-cmdcheatsheet -a "ls" "list directory content"
+cmdcheatsheet -a "ls" "List directory content"
 ```
 
 #### Display commands
-
 Display all commands:
 ```bash
-cmdcheatsheet -p
+cmdcheatsheet -c
 ```
 or:
 ```bash
@@ -41,11 +40,11 @@ cmdcheatsheet
 ```
 Display commands along with ids:
 ```
-cmdcheatsheet -i
+cmdcheatsheet -ci
 ```
 Display commands using table view:
 ```bash
-cmdcheatsheet -t
+cmdcheatsheet -ct
 ```
 
 #### Search for a command
@@ -73,7 +72,7 @@ cmdcheatsheet -d <command_id>
 
 #### Show all command names
 ```bash
-cmdcheatsheet -nl
+cmdcheatsheet -acn
 ```
 
 # Configuration
@@ -111,20 +110,20 @@ or display configuration by key:
 cmdcheatsheet -dc <config_key>
 ```
 
-#### Display available configurations
+#### Display available configs
 This command displays all available configurations. Each command consists of a key and an explanation.
 ```bash
 cmdcheatsheet -dac
 ```
 
-#### Set configuration
+#### Set config
 ```bash
 cmdcheatsheet -sc <configuration_key> <configuration_value>
 ```
 
 #### Remove configuration by key
 ```bash
-cmdcheatsheet -rc <configuration_key>
+cmdcheatsheet -rc <config_key>
 ```
 
 #### Set configuration to default
@@ -157,9 +156,9 @@ cmdcheatsheet -uas <store_name> <store_location>
 cmdcheatsheet -das <store_name>
 ```
 
-### Display alternative commands store details
+### Display available alternative stores
 ```bash
-cmdcheatsheet -dasd
+cmdcheatsheet -daas
 ```
 
 ### Switch to alternative commands store
@@ -167,7 +166,7 @@ cmdcheatsheet -dasd
 cmdcheatsheet -stas <store_name>
 ```
 
-### Display applied alternative store
+### Display applied alternative store name
 ```bash
 cmdcheatsheet -daasn
 ```

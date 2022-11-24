@@ -33,4 +33,5 @@ def config_details(config_key, config_value):
     else:
         print(f"[{blue}] {config_key}[{green}]: {config_value}")
     
-
+def version_details(current_version):
+    print(f"[{blue}] Version: [{green}]{current_version}")

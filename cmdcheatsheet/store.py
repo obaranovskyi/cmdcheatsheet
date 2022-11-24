@@ -28,7 +28,7 @@ def get_commands_by_includes_command_name(command_name):
             commands.append(command)
     return commands
 
-def save_all_commands(commands):
+def save_commands(commands):
     commands_to_save = [asdict(c) for c in commands]
     write_json(get_store_location(), commands_to_save)
 

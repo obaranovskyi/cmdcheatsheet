@@ -49,4 +49,3 @@ def remove_config(key):
         del config[key]
         write_json(config_location, config)
 
-    

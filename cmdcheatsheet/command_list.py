@@ -8,28 +8,33 @@ from cmdcheatsheet.config import *
 from cmdcheatsheet.alternative_store import *
 from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
 from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
-from cmdcheatsheet.logger import yellow, blue
+from cmdcheatsheet.logger import yellow, blue, version_details
+from cmdcheatsheet.consts import version
 
 
-class SimpleListCommand(CommandDetails):
+class SimpleCommandsList(CommandDetails):
     def __init__(self):
-       super().__init__(['-p', 'ls'], 'Display all commands.')
+       super().__init__(['-c', '--commands'], 'Display all commands.')
 
     def handler(self, _):
         display_commands()
 
 
-class SimpleDetailedListCommand(CommandDetails):
+class SimpleDetailedCommandsList(CommandDetails):
     def __init__(self):
-       super().__init__(['-i', 'lsi'], 'Display all commands, including all details such as ids, etc., all commands.')
+       super().__init__(
+            ['-ci', '--commands-info'],
+            'Display all commands, including all details such as ids, etc., all commands.')
 
     def handler(self, _):
         display_commands(True)
         
 
-class TableViewCommand(CommandDetails):
+class CommandsListTableView(CommandDetails):
     def __init__(self):
-       super().__init__(['-t', 'lst'], 'Display all commands using a table view.')
+       super().__init__(
+            ['-ct', '--commands-table'],
+            'Display all commands using a table view.')
 
     def handler(self, _):
         display_table_view()
@@ -38,7 +43,7 @@ class TableViewCommand(CommandDetails):
 class AddCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-a', '-c'],
+            ['-a', '--add'],
             'Add new command to the list.',
             [CommandArgument('command'), CommandArgument('description')])
 
@@ -50,7 +55,7 @@ class AddCommand(CommandDetails):
 class UpdateCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-u', '-e'],
+            ['-u', '--update'],
             'Update a <command> by id.',
             [CommandArgument('id'), CommandArgument('name'), CommandArgument('description')])
 
@@ -62,7 +67,7 @@ class UpdateCommand(CommandDetails):
 class DeleteCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-d', '-r'],
+            ['-d', '--delete'],
             'Delete a <command> by id.',
             [CommandArgument('id')])
 
@@ -73,7 +78,7 @@ class DeleteCommand(CommandDetails):
 class SearchCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-s', '-f'],
+            ['-f', '--find'],
             'Search for a command.',
             [CommandArgument('command')])
 
@@ -81,10 +86,10 @@ class SearchCommand(CommandDetails):
         display_command_by_name(args[0])
 
 
-class SearchCommandDetailed(CommandDetails):
+class DetailedSearchCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-si', '-fi'],
+            ['-fi', '--find-info'],
             'Search for a command and include all details, such as ids, etc.',
             [CommandArgument('command')])
 
@@ -95,7 +100,7 @@ class SearchCommandDetailed(CommandDetails):
 class SearchCommandTableView(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-st', '-ft'],
+            ['-ft', '--find-table'],
             'Search for a command and show it using a table view.',
             [CommandArgument('command')])
 
@@ -103,10 +108,10 @@ class SearchCommandTableView(CommandDetails):
         display_table_view(command=args[0])
 
 
-class NameListCommand(CommandDetails):
+class AvailableCommandNames(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-nl', 'lsnl'],
+            ['-acn', '--available-command-names'],
             'Show all stored command names.',
             [CommandArgument('number_of_columns', False)])
 
@@ -114,18 +119,24 @@ class NameListCommand(CommandDetails):
         display_command_name_list(int(args[0]) if len(args) > 0 else 5)
 
 
-class HelpCommand(CommandDetails):
+class Help(CommandDetails):
     def __init__(self):
        super().__init__(['-h', 'help', '--help'], 'Show a program help notes.')
 
     def handler(self, _):
         help(command_list)
 
+class Version(CommandDetails):
+    def __init__(self):
+       super().__init__(['-v', '--version'], 'Display version.')
 
-class SetConfigCommand(CommandDetails):
+    def handler(self, _):
+        version_details(version)
+
+class SetConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-sc'],
+            ['-sc', '--set-config'],
             'Set config.',
             [CommandArgument('key'), CommandArgument('value')])
 
@@ -135,20 +146,20 @@ class SetConfigCommand(CommandDetails):
         if validate_configuration(key, value):
             set_config_value(key=key, value=value)
 
-class RemoveConfigCommand(CommandDetails):
+class RemoveConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-rc'],
+            ['-rc', '--remove-config'],
             'Remove a config.',
             [CommandArgument('key')])
 
     def handler(self, args):
         remove_config(key=args[0])
 
-class DisplayConfigCommand(CommandDetails):
+class DisplayConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-dc'],
+            ['-dc', '--display-configs'],
             'Display configurations.',
             [CommandArgument('key', False)])
 
@@ -158,26 +169,28 @@ class DisplayConfigCommand(CommandDetails):
         else:
             display_configurations()
 
-class DisplayAvailableConfigurationsCommand(CommandDetails):
+class DisplayAvailableConfigs(CommandDetails):
     def __init__(self):
-       super().__init__(['-dac'], 'Display available configurations.')
+       super().__init__(
+            ['-dac', '--display-available-configs'],
+            'Display available configurations.')
 
     def handler(self, _):
         display_available_configurations()
 
-class SetConfigToDefaultCommand(CommandDetails):
+class SetConfigToDefault(CommandDetails):
     def __init__(self):
-       super().__init__(['-sctd'], 'Set the configuration to default.')
+       super().__init__(['-sctd', '--set-config-to-default'], 'Set the configuration to default.')
 
     def handler(self, _):
         is_yes = Confirm.ask("Are you sure you want to set your config to default?")
         if is_yes:
             set_config_to_default()
 
-class SetSingleConfigToDefaultCommand(CommandDetails):
+class SetSingleConfigToDefault(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-ssctd'],
+        ['-ssctd', '--set-single-config-to-default'],
         'Set a single configuration to default.',
         [CommandArgument('key')])
 
@@ -188,10 +201,10 @@ class SetSingleConfigToDefaultCommand(CommandDetails):
             set_single_config_value_to_default(key)
 
 
-class AddAlternativeStoreLocationCommand(CommandDetails):
+class AddAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-aas'],
+        ['-aas', '--add-alternative-store'],
         "Add alternative commands store (JSON file) location.",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -210,10 +223,10 @@ class AddAlternativeStoreLocationCommand(CommandDetails):
             add_alternative_store(store_name=store_name, store_location=store_location)
 
 
-class UpdateAlternativeStoreLocationCommand(CommandDetails):
+class UpdateAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-uas'],
+        ['-uas', '--update-alternative-store'],
         "Update alternative commands store (JSON file).",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -227,10 +240,10 @@ class UpdateAlternativeStoreLocationCommand(CommandDetails):
         else: 
             update_alternative_store(store_name=store_name, store_location=store_location)
 
-class DeleteAlternativeStoreLocationCommand(CommandDetails):
+class DeleteAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-das'],
+        ['-das', '--delete-alternative-store'],
         "Delete alternative commands store (JSON file).",
         [CommandArgument('store_name')])
 
@@ -241,19 +254,19 @@ class DeleteAlternativeStoreLocationCommand(CommandDetails):
         else: 
             show_store_with_name_not_exists(store_name)
 
-class DisplayAlternativeStoreLocationCommand(CommandDetails):
+class DisplayAvailableAlternativeStores(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-dasd'],
-        "Display alternative stores details.")
+        ['-daas', '--display-available-alternative-stores'],
+        "Display available alternative stores.")
 
     def handler(self, _):
         display_alternative_stores()
 
-class SwitchToAlternativeStoreLocationCommand(CommandDetails):
+class SwitchToAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-stas'],
+        ['-stas', '--switch-to-alternative-store'],
         "Switch to alternative store location.",
         [CommandArgument('store_name')])
 
@@ -270,10 +283,10 @@ class SwitchToAlternativeStoreLocationCommand(CommandDetails):
         else: 
             show_store_with_name_not_exists(store_name)
 
-class AppliedAlternativeStoreNameCommand(CommandDetails):
+class DisplayAppliedAlternativeStoreName(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-daasn'],
+        ['-daasn', '--display-applied-alternative-store-name'],
         "Display the name of applied alternative store.")
 
     def handler(self, _):
@@ -286,9 +299,9 @@ class AppliedAlternativeStoreNameCommand(CommandDetails):
 
 command_list = [
     # Display commands
-    SimpleListCommand(),
-    SimpleDetailedListCommand(),
-    TableViewCommand(),
+    SimpleCommandsList(),
+    SimpleDetailedCommandsList(),
+    CommandsListTableView(),
 
     # Crud commands
     AddCommand(),
@@ -297,27 +310,28 @@ command_list = [
 
     # Search commands
     SearchCommand(),
-    SearchCommandDetailed(),
+    DetailedSearchCommand(),
     SearchCommandTableView(),
 
     # Global info commands
-    NameListCommand(),
-    HelpCommand(),
+    AvailableCommandNames(),
+    Help(),
+    Version(),
     
     # Config commands
-    DisplayConfigCommand(),
-    DisplayAvailableConfigurationsCommand(),
-    SetConfigCommand(),
-    RemoveConfigCommand(),
-    SetConfigToDefaultCommand(),
-    SetSingleConfigToDefaultCommand(),
+    DisplayConfig(),
+    DisplayAvailableConfigs(),
+    SetConfig(),
+    RemoveConfig(),
+    SetConfigToDefault(),
+    SetSingleConfigToDefault(),
     # Config: Alternative store location 
-    AddAlternativeStoreLocationCommand(),
-    UpdateAlternativeStoreLocationCommand(),
-    DeleteAlternativeStoreLocationCommand(),
-    DisplayAlternativeStoreLocationCommand(),
-    SwitchToAlternativeStoreLocationCommand(),
-    AppliedAlternativeStoreNameCommand()
+    AddAlternativeStore(),
+    UpdateAlternativeStore(),
+    DeleteAlternativeStore(),
+    DisplayAvailableAlternativeStores(),
+    SwitchToAlternativeStore(),
+    DisplayAppliedAlternativeStoreName()
 ]
 
 def get_command_by_name(command_name):

@@ -12,7 +12,7 @@ def main():
     setup_commands_store_config()
 
     if len(sys.argv) == 1:
-        sys.argv.append('-p')
+        sys.argv.append('-c')
 
     command = sys.argv[1]
     args = sys.argv[2:]
