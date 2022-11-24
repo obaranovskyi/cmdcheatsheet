@@ -1,6 +1,6 @@
 from cmdcheatsheet.config import read_config, set_config_value
 from cmdcheatsheet.json_file import write_json
-from cmdcheatsheet.consts import config_location
+from cmdcheatsheet.consts import CONFIG_LOCATION
 from cmdcheatsheet.display import display_alt_store
 
 
@@ -11,20 +11,20 @@ def add_alt_store(alt_store):
         'storeName': alt_store.name,
         'storeLocation': alt_store.location 
     })
-    write_json(config_location, config)
+    write_json(CONFIG_LOCATION, config)
     
 def update_alt_store(alt_store_to_update):
     config = read_config()
     for alt_store in config.get('alternativeStoreLocations') :
         if alt_store.get('storeName') == alt_store_to_update.name:
             alt_store['storeLocation'] = alt_store_to_update.location
-    write_json(config_location, config)
+    write_json(CONFIG_LOCATION, config)
 
 def delete_alt_store(store_name):
     config = read_config()
     alt_stores = config.get('alternativeStoreLocations')
     config['alternativeStoreLocations'] = exclude_by_name_filter(alt_stores, store_name)
-    write_json(config_location, config)
+    write_json(CONFIG_LOCATION, config)
 
 def is_existing_store_name(store_name):
     config = read_config()

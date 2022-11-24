@@ -2,20 +2,21 @@ import os
 from cmdcheatsheet.models import DefaultConfigurations, DefaultConfig
 
 
-version = '0.0.19'
-user_home_dir = os.path.expanduser('~')
+VERSION = '0.0.19'
 
-config_dir = f"{user_home_dir}/.config/cmdcheatsheet"
-config_name = "config.json"
-config_location = f"{config_dir}/{config_name}"
+USER_HOME_DIR = os.path.expanduser('~')
 
-store_name = "commands.json"
-default_commands_store_location = f"{config_dir}/{store_name}"
+CONFIG_DIR = f"{USER_HOME_DIR}/.config/cmdcheatsheet"
+CONFIG_NAME = "config.json"
+CONFIG_LOCATION = f"{CONFIG_DIR}/{CONFIG_NAME}"
 
-default_config = DefaultConfigurations([
+STORE_NAME = "commands.json"
+DEFAULT_COMMANDS_STORE_LOCATION = f"{CONFIG_DIR}/{STORE_NAME}"
+
+DEFAULT_CONFIG = DefaultConfigurations([
     DefaultConfig(
         "commandsStoreLocation",
-        default_commands_store_location,
+        DEFAULT_COMMANDS_STORE_LOCATION,
         'Path to file in JSON format that consists of the command list.'
     ),
     DefaultConfig(

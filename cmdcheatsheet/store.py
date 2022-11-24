@@ -4,7 +4,7 @@ from dataclasses import asdict
 from cmdcheatsheet.models import Command
 from cmdcheatsheet.config import get_store_location
 from cmdcheatsheet.json_file import write_json
-from cmdcheatsheet.consts import default_commands_store_location
+from cmdcheatsheet.consts import DEFAULT_COMMANDS_STORE_LOCATION
 
 
 def get_commands():
@@ -33,6 +33,6 @@ def save_commands(commands):
     write_json(get_store_location(), commands_to_save)
 
 def setup_commands_store_config():
-    if not os.path.exists(default_commands_store_location):
+    if not os.path.exists(DEFAULT_COMMANDS_STORE_LOCATION):
         write_json(get_store_location(), [])
 

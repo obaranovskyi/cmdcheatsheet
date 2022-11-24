@@ -1,7 +1,7 @@
 from cmdcheatsheet.command import group_commands_by_name
 from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
 from cmdcheatsheet.logger import error, command_details, config_details, alt_store_details
-from cmdcheatsheet.config import read_config, default_config
+from cmdcheatsheet.config import read_config, DEFAULT_CONFIG
 
 
 def display_commands(display_index=False):
@@ -28,7 +28,7 @@ def calc_id_column_size(commands):
 def display_configurations(key=''): 
     config = read_config()
     if key:
-        if key in default_config.configuration_keys():
+        if key in DEFAULT_CONFIG.configuration_keys():
             config_details(key, config[key])
         else:
             error(f"No configuration found with the name {key}")
@@ -37,7 +37,7 @@ def display_configurations(key=''):
             config_details(key, config[key])
 
 def display_available_configurations():
-    for config in default_config.configs:
+    for config in DEFAULT_CONFIG.configs:
         config_details(config.key, config.desc)
 
 def display_alt_store(alt_stores):

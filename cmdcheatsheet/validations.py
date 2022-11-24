@@ -1,10 +1,10 @@
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.consts import default_config
+from cmdcheatsheet.consts import DEFAULT_CONFIG
 from cmdcheatsheet.messages import show_invalid_store_location_message
 
 def validate_configuration(config_key, config_value):
-    exists = config_key in default_config.configuration_keys()
+    exists = config_key in DEFAULT_CONFIG.configuration_keys()
     valid = True
     if not exists:
         valid = Confirm.ask(

@@ -9,7 +9,7 @@ from cmdcheatsheet.alt_store import *
 from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
 from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
 from cmdcheatsheet.logger import yellow, blue, version_details
-from cmdcheatsheet.consts import version
+from cmdcheatsheet.consts import VERSION
 
 
 class SimpleCommandsList(CommandDetails):
@@ -133,7 +133,7 @@ class Version(CommandDetails):
        super().__init__(['--version', '-v'], 'Display version.')
 
     def handler(self, _):
-        version_details(version)
+        version_details(VERSION)
 
 class SetConfig(CommandDetails):
     def __init__(self):
