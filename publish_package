@@ -5,7 +5,5 @@ then
   rm -rf dist
   python -m build
   twine upload dist/* --verbose
-else 
-  echo "version doesn't updated"
 fi
 

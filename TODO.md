@@ -1,4 +1,3 @@
 - consider creating alternative store model
 - consider using enum for config properties
 - if no alternative stores don't display property
-- add version function
