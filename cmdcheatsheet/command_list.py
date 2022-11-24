@@ -276,7 +276,7 @@ class SwitchToAlternativeStore(CommandDetails):
         store_name = args[0]
         if is_existing_store_name(store_name):
             is_yes = Confirm.ask(
-                "If you switch the location, your config 'commandsStoreLocation' " +
+                "If you switch the location, your config 'currentStoreLocation' " +
                 "will be overridden, and you'll lose its value.\n" +
                 "Do you want to proceed?"
             )

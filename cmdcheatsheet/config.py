@@ -18,7 +18,7 @@ def read_config():
 
 def get_store_location():
     config = read_config()
-    return config.get('commandsStoreLocation')
+    return config.get('currentStoreLocation')
 
 def set_config_value(key, value):
     config = read_config()

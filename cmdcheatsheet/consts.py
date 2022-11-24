@@ -15,12 +15,12 @@ DEFAULT_COMMANDS_STORE_LOCATION = f"{CONFIG_DIR}/{STORE_NAME}"
 
 DEFAULT_CONFIG = DefaultConfigurations([
     DefaultConfig(
-        "commandsStoreLocation",
+        "currentStoreLocation",
         DEFAULT_COMMANDS_STORE_LOCATION,
         'Path to file in JSON format that consists of the command list.'
     ),
     DefaultConfig(
-        "alternativeStoreLocations",
+        "alternativeStores",
         [],
         'Path list to JSON files that might be used as an alternative commands store location.'
     )

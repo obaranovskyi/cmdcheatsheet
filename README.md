@@ -107,15 +107,15 @@ cmdcheatsheet configuration folder is located at `~/.config/cmdcheatsheet`.\
 The config is called `config.json`
 
 #### Available configurations
-* `commandsStoreLocation` - Path to file in JSON format that consists of the command list.
-* `alternativeStoreLocations` - Path list to JSON files that might be used as an alternative commands store location.
+* `currentStoreLocation` - Path to file in JSON format that consists of the command list.
+* `alternativeStores` - Path list to JSON files that might be used as an alternative commands store location.
 Every item in the list has a `storeName` property, which is just a store name and the second property is `storeLocation`, responsible for the path to the commands store (JSON file location).
 
 Here is a `config.json` example:
 ```json
 {
-    "commandsStoreLocation": "/Users/myusername/.config/cmdcheatsheet/commands.json",
-    "alternativeStoreLocations": [
+    "currentStoreLocation": "/Users/myusername/.config/cmdcheatsheet/commands.json",
+    "alternativeStores": [
         {
             "storeName": "unix",
             "storeLocation": "/Users/myusername/my-configs/cmdcheatsheet/unix_commands.json"
