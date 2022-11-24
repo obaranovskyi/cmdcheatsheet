@@ -14,7 +14,9 @@ from cmdcheatsheet.consts import version
 
 class SimpleCommandsList(CommandDetails):
     def __init__(self):
-       super().__init__(['-c', '--commands'], 'Display all commands.')
+       super().__init__(
+            ['--commands', '-c'],
+            'Display all commands.')
 
     def handler(self, _):
         display_commands()
@@ -23,7 +25,7 @@ class SimpleCommandsList(CommandDetails):
 class SimpleDetailedCommandsList(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-ci', '--commands-info'],
+            ['--commands-info', '-ci'],
             'Display all commands, including all details such as ids, etc., all commands.')
 
     def handler(self, _):
@@ -33,7 +35,7 @@ class SimpleDetailedCommandsList(CommandDetails):
 class CommandsListTableView(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-ct', '--commands-table'],
+            ['--commands-table', '-ct'],
             'Display all commands using a table view.')
 
     def handler(self, _):
@@ -43,7 +45,7 @@ class CommandsListTableView(CommandDetails):
 class AddCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-a', '--add'],
+            ['--add', '-a'],
             'Add new command to the list.',
             [CommandArgument('command'), CommandArgument('description')])
 
@@ -55,7 +57,7 @@ class AddCommand(CommandDetails):
 class UpdateCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-u', '--update'],
+            ['--update', '-u'],
             'Update a <command> by id.',
             [CommandArgument('id'), CommandArgument('name'), CommandArgument('description')])
 
@@ -67,7 +69,7 @@ class UpdateCommand(CommandDetails):
 class DeleteCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-d', '--delete'],
+            ['--delete', '-d'],
             'Delete a <command> by id.',
             [CommandArgument('id')])
 
@@ -78,7 +80,7 @@ class DeleteCommand(CommandDetails):
 class SearchCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-f', '--find'],
+            ['--find', '-f'],
             'Search for a command.',
             [CommandArgument('command')])
 
@@ -89,7 +91,7 @@ class SearchCommand(CommandDetails):
 class DetailedSearchCommand(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-fi', '--find-info'],
+            ['--find-info', '-fi'],
             'Search for a command and include all details, such as ids, etc.',
             [CommandArgument('command')])
 
@@ -100,7 +102,7 @@ class DetailedSearchCommand(CommandDetails):
 class SearchCommandTableView(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-ft', '--find-table'],
+            ['--find-table', '-ft'],
             'Search for a command and show it using a table view.',
             [CommandArgument('command')])
 
@@ -111,7 +113,7 @@ class SearchCommandTableView(CommandDetails):
 class AvailableCommandNames(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-acn', '--available-command-names'],
+            ['--available-command-names', '-acn'],
             'Show all stored command names.',
             [CommandArgument('number_of_columns', False)])
 
@@ -121,14 +123,14 @@ class AvailableCommandNames(CommandDetails):
 
 class Help(CommandDetails):
     def __init__(self):
-       super().__init__(['-h', 'help', '--help'], 'Show a program help notes.')
+       super().__init__(['--help', '-h'], 'Show a program help notes.')
 
     def handler(self, _):
         help(command_list)
 
 class Version(CommandDetails):
     def __init__(self):
-       super().__init__(['-v', '--version'], 'Display version.')
+       super().__init__(['--version', '-v'], 'Display version.')
 
     def handler(self, _):
         version_details(version)
@@ -136,7 +138,7 @@ class Version(CommandDetails):
 class SetConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-sc', '--set-config'],
+            ['--set-config', '-sc'],
             'Set config.',
             [CommandArgument('key'), CommandArgument('value')])
 
@@ -149,7 +151,7 @@ class SetConfig(CommandDetails):
 class RemoveConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-rc', '--remove-config'],
+            [ '--remove-config', '-rc'],
             'Remove a config.',
             [CommandArgument('key')])
 
@@ -159,7 +161,7 @@ class RemoveConfig(CommandDetails):
 class DisplayConfig(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-dc', '--display-configs'],
+            ['--display-configs', '-dc'],
             'Display configurations.',
             [CommandArgument('key', False)])
 
@@ -172,7 +174,7 @@ class DisplayConfig(CommandDetails):
 class DisplayAvailableConfigs(CommandDetails):
     def __init__(self):
        super().__init__(
-            ['-dac', '--display-available-configs'],
+            ['--display-available-configs', '-dac'],
             'Display available configurations.')
 
     def handler(self, _):
@@ -180,7 +182,9 @@ class DisplayAvailableConfigs(CommandDetails):
 
 class SetConfigToDefault(CommandDetails):
     def __init__(self):
-       super().__init__(['-sctd', '--set-config-to-default'], 'Set the configuration to default.')
+       super().__init__(
+            ['--set-config-to-default', '-sctd'],
+            'Set the configuration to default.')
 
     def handler(self, _):
         is_yes = Confirm.ask("Are you sure you want to set your config to default?")
@@ -190,7 +194,7 @@ class SetConfigToDefault(CommandDetails):
 class SetSingleConfigToDefault(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-ssctd', '--set-single-config-to-default'],
+        ['--set-single-config-to-default', '-ssctd'],
         'Set a single configuration to default.',
         [CommandArgument('key')])
 
@@ -204,7 +208,7 @@ class SetSingleConfigToDefault(CommandDetails):
 class AddAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-aas', '--add-alternative-store'],
+        ['--add-alternative-store', '-aas'],
         "Add alternative commands store (JSON file) location.",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -226,7 +230,7 @@ class AddAlternativeStore(CommandDetails):
 class UpdateAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-uas', '--update-alternative-store'],
+        ['--update-alternative-store', '-uas'],
         "Update alternative commands store (JSON file).",
         [CommandArgument('store_name'), CommandArgument('store_location')])
 
@@ -243,7 +247,7 @@ class UpdateAlternativeStore(CommandDetails):
 class DeleteAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-das', '--delete-alternative-store'],
+        ['--delete-alternative-store', '-das'] ,
         "Delete alternative commands store (JSON file).",
         [CommandArgument('store_name')])
 
@@ -257,7 +261,7 @@ class DeleteAlternativeStore(CommandDetails):
 class DisplayAvailableAlternativeStores(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-daas', '--display-available-alternative-stores'],
+        ['--display-available-alternative-stores', '-daas'],
         "Display available alternative stores.")
 
     def handler(self, _):
@@ -266,7 +270,7 @@ class DisplayAvailableAlternativeStores(CommandDetails):
 class SwitchToAlternativeStore(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-stas', '--switch-to-alternative-store'],
+        ['--switch-to-alternative-store', '-stas'],
         "Switch to alternative store location.",
         [CommandArgument('store_name')])
 
@@ -286,7 +290,7 @@ class SwitchToAlternativeStore(CommandDetails):
 class DisplayAppliedAlternativeStoreName(CommandDetails):
     def __init__(self):
        super().__init__(
-        ['-daasn', '--display-applied-alternative-store-name'],
+        ['--display-applied-alternative-store-name', '-daasn'],
         "Display the name of applied alternative store.")
 
     def handler(self, _):
