@@ -1,3 +1,1 @@
-- consider using enum for config properties
 - if no alternative stores don't display property
-- all lib installation
