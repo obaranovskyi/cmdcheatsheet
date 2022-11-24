@@ -21,7 +21,30 @@ cmdcheatsheet --help
 ```
 here is the output:
 ```
-
+  --commands, -c - Display all commands.
+  --commands-info, -ci - Display all commands, including all details such as ids, etc., all commands.
+  --commands-table, -ct - Display all commands using a table view.
+  --add <command> <description>, -a <command> <description> - Add new command to the list.
+  --update <id> <name> <description>, -u <id> <name> <description> - Update a <command> by id.
+  --delete <id>, -d <id> - Delete a <command> by id.
+  --find <command>, -f <command> - Search for a command.
+  --find-info <command>, -fi <command> - Search for a command and include all details, such as ids, etc.
+  --find-table <command>, -ft <command> - Search for a command and show it using a table view.
+  --available-command-names <number_of_columns:optional>, -acn <number_of_columns:optional> - Show all stored command names.
+  --help, -h - Show a program help notes.
+  --version, -v - Display version.
+  --display-configs <key:optional>, -dc <key:optional> - Display configurations.
+  --display-available-configs, -dac - Display available configurations.
+  --set-config <key> <value>, -sc <key> <value> - Set config.
+  --remove-config <key>, -rc <key> - Remove a config.
+  --set-config-to-default, -sctd - Set the configuration to default.
+  --set-single-config-to-default <key>, -ssctd <key> - Set a single configuration to default.
+  --add-alternative-store <store_name> <store_location>, -aas <store_name> <store_location> - Add alternative commands store (JSON file) location.
+  --update-alternative-store <store_name> <store_location>, -uas <store_name> <store_location> - Update alternative commands store (JSON file).
+  --delete-alternative-store <store_name>, -das <store_name> - Delete alternative commands store (JSON file).
+  --display-available-alternative-stores, -daas - Display available alternative stores.
+  --switch-to-alternative-store <store_name>, -stas <store_name> - Switch to alternative store location.
+  --display-applied-alternative-store-name, -daasn - Display the name of applied alternative store.
 ```
 
 #### Add command
