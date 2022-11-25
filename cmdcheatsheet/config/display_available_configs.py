@@ -1,4 +1,4 @@
-# from cmdcheatsheet.display import display_available_configurations
+from cmdcheatsheet.config.logger import display_available_configurations
 from cmdcheatsheet.models import CommandDetails
 
 
@@ -9,5 +9,4 @@ class DisplayAvailableConfigs(CommandDetails):
             'Display available configurations.')
 
     def handler(self, _):
-        pass
-        # display_available_configurations()
+        display_available_configurations()

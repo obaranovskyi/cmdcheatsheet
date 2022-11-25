@@ -1,7 +1,7 @@
 from cmdcheatsheet.config.core import read_config, set_config_value
 from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.consts import *
-from cmdcheatsheet.display import display_alt_store
+from cmdcheatsheet.alt_store.logger import display_alt_store
 
 
 def add_alt_store(alt_store):

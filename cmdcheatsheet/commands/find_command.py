@@ -1,4 +1,4 @@
-from cmdcheatsheet.display import display_command_by_name
+from cmdcheatsheet.commands.logger import display_command_by_name
 from cmdcheatsheet.models import CommandArgument, CommandDetails
 
 

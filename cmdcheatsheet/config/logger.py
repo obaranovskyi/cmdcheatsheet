@@ -1,4 +1,22 @@
-from cmdcheatsheet.shared.logger import BLUE, GREEN
+from cmdcheatsheet.config.core import read_config
+from cmdcheatsheet.consts import DEFAULT_CONFIG
+from cmdcheatsheet.shared.logger import BLUE, GREEN, error
+
+def display_configurations(key=''): 
+    config = read_config()
+    if key:
+        if key in DEFAULT_CONFIG.configuration_keys():
+            config_details(key, config[key])
+        else:
+            error(f"No configuration found with the name {key}")
+    else:
+        for key in config:
+            config_details(key, config[key])
+
+
+def display_available_configurations():
+    for config in DEFAULT_CONFIG.configs:
+        config_details(config.key, config.desc)
 
 
 def config_details(config_key, config_value):
