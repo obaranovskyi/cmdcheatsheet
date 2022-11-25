@@ -1,3 +1,4 @@
+from rich import print
 from cmdcheatsheet.alt_store.core import get_applied_alt_store_name
 from cmdcheatsheet.shared.models import CommandDetails
 from cmdcheatsheet.shared.display import YELLOW, BLUE

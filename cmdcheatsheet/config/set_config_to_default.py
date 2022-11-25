@@ -10,6 +10,8 @@ class SetConfigToDefault(CommandDetails):
             'Set the configuration to default.')
 
     def handler(self, _):
-        is_yes = Confirm.ask("Are you sure you want to set your config to default?")
+        is_yes = Confirm.ask(
+            "All config changes will be lost. \n" +
+            "Are you sure you want to set your config to default?")
         if is_yes:
             set_config_to_default()

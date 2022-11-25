@@ -1,3 +1,4 @@
+from rich import print
 from rich.console import Console
 from rich.table import Table
 from cmdcheatsheet.commands.core import get_command_name_list, get_commands, get_commands_by_includes_command_name, group_commands_by_name

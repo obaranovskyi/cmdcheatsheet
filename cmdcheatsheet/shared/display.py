@@ -1,3 +1,6 @@
+from rich import print
+
+
 BLUE = "turquoise2"
 RED = "deep_pink2"
 GREEN = "spring_green1"

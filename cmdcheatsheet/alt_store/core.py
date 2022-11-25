@@ -7,10 +7,10 @@ from cmdcheatsheet.alt_store.display import display_alt_store_list
 def add_alt_store(alt_store):
     config = read_config()
     alt_stores = config.get(ALT_STORES_CONF)
-    alt_stores.append({
-        [ALT_STORE_NAME_CONF]: alt_store.name,
-        [ALT_STORE_LOCATION_CONF]: alt_store.location 
-    })
+    alt_store_to_add = dict()
+    alt_store_to_add[ALT_STORE_NAME_CONF] = alt_store.name
+    alt_store_to_add[ALT_STORE_LOCATION_CONF] = alt_store.location
+    alt_stores.append(alt_store_to_add)
     write_json(CONFIG_LOCATION, config)
     
 def update_alt_store(alt_store_to_update):

@@ -1,3 +1,4 @@
+from rich import print
 from cmdcheatsheet.config.consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF
 from cmdcheatsheet.shared.display import BLUE, GREEN
 
