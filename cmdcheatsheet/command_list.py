@@ -9,7 +9,7 @@ from cmdcheatsheet.alt_store import *
 from cmdcheatsheet.validations import validate_configuration, is_valid_custom_commands_location
 from cmdcheatsheet.messages import show_invalid_store_location_message, show_store_with_name_not_exists
 from cmdcheatsheet.logger import yellow, blue, version_details
-from cmdcheatsheet.consts import VERSION, CURR_STORE_LOCATION_CONF_NAME
+from cmdcheatsheet.consts import VERSION, CURR_STORE_LOCATION_CONF
 
 
 class SimpleCommandsList(CommandDetails):
@@ -276,7 +276,7 @@ class SwitchToAlternativeStore(CommandDetails):
         store_name = args[0]
         if is_existing_store_name(store_name):
             is_yes = Confirm.ask(
-                f"If you switch the location, your config '{CURR_STORE_LOCATION_CONF_NAME}' " +
+                f"If you switch the location, your config '{CURR_STORE_LOCATION_CONF}' " +
                 "will be overridden, and you'll lose its value.\n" +
                 "Do you want to proceed?"
             )

@@ -13,19 +13,20 @@ CONFIG_LOCATION = f"{CONFIG_DIR}/{CONFIG_NAME}"
 STORE_NAME = "commands.json"
 DEFAULT_COMMANDS_STORE_LOCATION = f"{CONFIG_DIR}/{STORE_NAME}"
 
-CURR_STORE_LOCATION_CONF_NAME = 'currentStoreLocation'
-ALT_STORES_CONF_NAME = 'alternativeStores'
-ALT_STORE_NAME_CONF_NAME = 'storeName'
-ALT_STORE_LOCATION_CONF_NAME = 'storeLocation'
+# Config property names
+CURR_STORE_LOCATION_CONF = 'currentStoreLocation'
+ALT_STORES_CONF = 'alternativeStores'
+ALT_STORE_NAME_CONF = 'storeName'
+ALT_STORE_LOCATION_CONF = 'storeLocation'
 
 DEFAULT_CONFIG = DefaultConfigurations([
     DefaultConfig(
-        CURR_STORE_LOCATION_CONF_NAME,
+        CURR_STORE_LOCATION_CONF,
         DEFAULT_COMMANDS_STORE_LOCATION,
         'Path to file in JSON format that consists of the command list.'
     ),
     DefaultConfig(
-        ALT_STORES_CONF_NAME,
+        ALT_STORES_CONF,
         [],
         'Path list to JSON files that might be used as an alternative commands store location.'
     )
