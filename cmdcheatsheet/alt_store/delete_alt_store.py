@@ -1,4 +1,4 @@
-from cmdcheatsheet.alt_store import delete_alt_store, is_existing_store_name
+from cmdcheatsheet.alt_store_core import delete_alt_store, is_existing_store_name
 from cmdcheatsheet.messages import show_store_with_name_not_exists
 from cmdcheatsheet.models import CommandArgument, CommandDetails
 

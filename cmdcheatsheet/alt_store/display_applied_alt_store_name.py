@@ -1,4 +1,4 @@
-from cmdcheatsheet.alt_store import get_applied_alt_store_name
+from cmdcheatsheet.alt_store_core import get_applied_alt_store_name
 from cmdcheatsheet.models import CommandDetails
 from cmdcheatsheet.logger import yellow, blue
 
