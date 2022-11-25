@@ -1,6 +1,6 @@
 from cmdcheatsheet.config.core import set_config_value
 from cmdcheatsheet.models import CommandArgument, CommandDetails
-from cmdcheatsheet.validations import validate_configuration
+from cmdcheatsheet.config.validators import validate_configuration
 
 
 class SetConfig(CommandDetails):
