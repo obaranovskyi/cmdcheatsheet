@@ -1,5 +1,5 @@
 from cmdcheatsheet.config.logger import display_configurations
-from cmdcheatsheet.models import CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
 class DisplayConfig(CommandDetails):

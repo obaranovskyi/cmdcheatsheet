@@ -1,5 +1,5 @@
 from cmdcheatsheet.alt_store.core import get_applied_alt_store_name
-from cmdcheatsheet.models import CommandDetails
+from cmdcheatsheet.shared.models import CommandDetails
 from cmdcheatsheet.shared.logger import YELLOW, BLUE
 
 

@@ -1,5 +1,5 @@
 from cmdcheatsheet.commands.core import delete_command
-from cmdcheatsheet.models import CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
 class DeleteCommand(CommandDetails):

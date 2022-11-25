@@ -1,5 +1,5 @@
 from cmdcheatsheet.commands.core import add_command
-from cmdcheatsheet.models import Command, CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import Command, CommandArgument, CommandDetails
 
 
 class AddCommand(CommandDetails):

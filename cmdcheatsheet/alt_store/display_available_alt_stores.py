@@ -1,5 +1,5 @@
 from cmdcheatsheet.alt_store.core import display_alt_stores
-from cmdcheatsheet.models import CommandDetails
+from cmdcheatsheet.shared.models import CommandDetails
 
 
 class DisplayAvailableAltStores(CommandDetails):

@@ -1,1 +1,2 @@
 - if no alternative stores don't display property
+- consired renaming command from the shared to action or sth else 

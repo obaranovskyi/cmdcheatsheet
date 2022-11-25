@@ -1,5 +1,5 @@
 from cmdcheatsheet.commands.logger import display_command_by_name
-from cmdcheatsheet.models import CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
 class FindCommand(CommandDetails):

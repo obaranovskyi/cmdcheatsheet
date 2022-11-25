@@ -1,5 +1,5 @@
 import os
-from cmdcheatsheet.models import DefaultConfigurations, DefaultConfig
+from cmdcheatsheet.config.models import DefaultConfigurations, DefaultConfig
 
 
 VERSION = '0.0.21'

@@ -1,5 +1,5 @@
 from cmdcheatsheet.commands.logger import display_table_view
-from cmdcheatsheet.models import CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
 class TableViewFindCommand(CommandDetails):

@@ -1,5 +1,5 @@
 from cmdcheatsheet.config.core import set_config_value
-from cmdcheatsheet.models import CommandArgument, CommandDetails
+from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 from cmdcheatsheet.config.validators import validate_configuration
 
 

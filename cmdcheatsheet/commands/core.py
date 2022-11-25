@@ -5,7 +5,7 @@ from cmdcheatsheet.config.core import get_store_location
 from cmdcheatsheet.consts import DEFAULT_COMMANDS_STORE_LOCATION
 from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.shared.logger import info, error
-from cmdcheatsheet.models import Command
+from cmdcheatsheet.shared.models import Command
 
 
 def command_to_name(command):

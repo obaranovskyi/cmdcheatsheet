@@ -1,6 +1,6 @@
 from cmdcheatsheet.consts import VERSION
 from cmdcheatsheet.general.logger import version_details
-from cmdcheatsheet.models import CommandDetails
+from cmdcheatsheet.shared.models import CommandDetails
 
 
 class Version(CommandDetails):

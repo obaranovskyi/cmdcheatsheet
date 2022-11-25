@@ -2,7 +2,7 @@ from cmdcheatsheet.commands.actions import command_actions
 from cmdcheatsheet.general.actions import general_actions
 from cmdcheatsheet.config.actions import config_actions
 from cmdcheatsheet.alt_store.actions import alt_store_actions
-from cmdcheatsheet.models import CommandDetails
+from cmdcheatsheet.shared.models import CommandDetails
 from cmdcheatsheet.help import help as program_help
 
 class Help(CommandDetails):
