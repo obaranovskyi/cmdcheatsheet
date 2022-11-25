@@ -1,4 +1,4 @@
-from cmdcheatsheet.config import read_config, set_config_value
+from cmdcheatsheet.configuration import read_config, set_config_value
 from cmdcheatsheet.json_file import write_json
 from cmdcheatsheet.consts import *
 from cmdcheatsheet.display import display_alt_store
@@ -57,3 +57,4 @@ def get_applied_alt_store_name():
         if store.get(ALT_STORE_LOCATION_CONF) == commands_store_location:
             alt_store_name = store.get(ALT_STORE_NAME_CONF)
     return alt_store_name if alt_store_name else ''
+

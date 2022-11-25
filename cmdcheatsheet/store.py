@@ -2,7 +2,7 @@ import os
 import json
 from dataclasses import asdict
 from cmdcheatsheet.models import Command
-from cmdcheatsheet.config import get_store_location
+from cmdcheatsheet.configuration import get_store_location
 from cmdcheatsheet.json_file import write_json
 from cmdcheatsheet.consts import DEFAULT_COMMANDS_STORE_LOCATION
 

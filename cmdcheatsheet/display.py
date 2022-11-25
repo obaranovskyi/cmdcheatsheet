@@ -2,7 +2,7 @@ from cmdcheatsheet.command import group_commands_by_name
 from cmdcheatsheet.consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF
 from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
 from cmdcheatsheet.logger import error, command_details, config_details, alt_store_details
-from cmdcheatsheet.config import read_config, DEFAULT_CONFIG
+from cmdcheatsheet.configuration import read_config, DEFAULT_CONFIG
 
 
 def display_commands(display_index=False):

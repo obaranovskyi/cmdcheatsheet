@@ -1,0 +1,14 @@
+from cmdcheatsheet.display_table import display_table_view
+from cmdcheatsheet.models import CommandArgument, CommandDetails
+
+
+class TableViewFindCommand(CommandDetails):
+    def __init__(self):
+       super().__init__(
+            ['--find-table', '-ft'],
+            'Search for a command and show it using a table view.',
+            [CommandArgument('command')])
+
+    def handler(self, args):
+        display_table_view(command=args[0])
+
