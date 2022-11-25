@@ -1,5 +1,7 @@
-from cmdcheatsheet.commands.core import get_commands, get_commands_by_includes_command_name, group_commands_by_name
-from cmdcheatsheet.shared.logger import BLUE, GREEN, YELLOW, error
+from rich.console import Console
+from rich.table import Table
+from cmdcheatsheet.commands.core import get_command_name_list, get_commands, get_commands_by_includes_command_name, group_commands_by_name
+from cmdcheatsheet.shared.logger import BLUE, GREEN, RED, YELLOW, error
 
 def display_command_by_name(command_name, display_index=False):
     commands_to_display = get_commands_by_includes_command_name(command_name)
@@ -27,3 +29,38 @@ def command_details(command, display_index, id_column_length=5):
     index = f"[{BLUE}]|[{YELLOW}] {id}[{BLUE}]  |" if display_index else ""
     print(f"{index}[{BLUE}] {command.command}[{GREEN}] - {command.description}")
 
+
+def display_table_view(command=''):
+    all_commands = get_commands_by_includes_command_name(command) if command else get_commands()
+    console = Console()
+    table = Table(show_header=True, header_style=RED)
+    table.add_column("Id")
+    table.add_column("Command")
+    table.add_column("Description")
+    for c in all_commands:
+        table.add_row(
+            f'[{YELLOW}]{str(c.id)}',
+            f'[{BLUE}]{c.command}',
+            f'[{GREEN}]{c.description}'
+        )
+    console.print(table)
+
+def display_command_name_list(column_amount):
+    commands = get_command_name_list()
+    chunked_list = []
+    chunk_size = column_amount if len(commands) >= column_amount else len(commands)
+    if not chunk_size:
+        print(f'[{RED}] No commands have been found yet.')
+        return
+    for i in range(0, len(commands), chunk_size):
+        chunked_list.append(commands[i:i+chunk_size])
+    console = Console()
+    table = Table(show_header=False, header_style=RED)
+    for i in range(chunk_size):
+        table.add_column()
+    for chunk in chunked_list:
+        row = []
+        for cn in range(0, chunk_size):
+            row.append(f'[{GREEN}]{chunk[cn] if len(chunk) > cn else ""}')
+        table.add_row(*row) 
+    console.print(table)

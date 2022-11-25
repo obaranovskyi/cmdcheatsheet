@@ -1,4 +1,4 @@
-from cmdcheatsheet.display_table import display_table_view
+from cmdcheatsheet.commands.logger import display_table_view
 from cmdcheatsheet.models import CommandDetails
 
 
