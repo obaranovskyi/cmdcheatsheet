@@ -1,6 +1,6 @@
 from rich.prompt import Confirm
 from cmdcheatsheet.alt_store.core import add_alt_store, is_existing_store_name, update_alt_store
-from cmdcheatsheet.messages import show_invalid_store_location_message
+from cmdcheatsheet.alt_store.messages import show_invalid_store_location_message
 from cmdcheatsheet.models import AlternativeStore, CommandArgument, CommandDetails
 from cmdcheatsheet.validations import is_valid_custom_commands_location
 

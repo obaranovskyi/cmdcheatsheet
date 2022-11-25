@@ -1,7 +1,7 @@
 import json
 from rich.prompt import Confirm
 from cmdcheatsheet.consts import CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG
-from cmdcheatsheet.messages import show_invalid_store_location_message
+from cmdcheatsheet.alt_store.messages import show_invalid_store_location_message
 
 def validate_configuration(config_key, config_value):
     exists = config_key in DEFAULT_CONFIG.configuration_keys()
