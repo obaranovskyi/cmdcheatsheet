@@ -2,7 +2,7 @@ import os
 from cmdcheatsheet.models import DefaultConfigurations, DefaultConfig
 
 
-VERSION = '0.0.19'
+VERSION = '0.0.21'
 
 USER_HOME_DIR = os.path.expanduser('~')
 
