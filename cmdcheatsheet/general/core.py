@@ -1,5 +1,5 @@
 from cmdcheatsheet.general.consts import HELP_RESPONSIBLE_COMMANDS
-from cmdcheatsheet.logger import help_details
+from cmdcheatsheet.general.logger import help_details
 
 
 def help(command_list):
