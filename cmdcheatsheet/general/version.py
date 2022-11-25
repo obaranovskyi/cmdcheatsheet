@@ -1,4 +1,4 @@
-from cmdcheatsheet.consts import VERSION
+from cmdcheatsheet.shared.consts import VERSION
 from cmdcheatsheet.general.logger import version_details
 from cmdcheatsheet.shared.models import CommandDetails
 

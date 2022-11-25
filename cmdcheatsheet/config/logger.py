@@ -1,5 +1,5 @@
 from cmdcheatsheet.config.core import read_config
-from cmdcheatsheet.consts import DEFAULT_CONFIG
+from cmdcheatsheet.config.consts import DEFAULT_CONFIG
 from cmdcheatsheet.shared.logger import BLUE, GREEN, error
 
 def display_configurations(key=''): 

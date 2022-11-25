@@ -1,4 +1,4 @@
-from cmdcheatsheet.consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF
+from cmdcheatsheet.config.consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF
 from cmdcheatsheet.shared.logger import BLUE, GREEN
 
 

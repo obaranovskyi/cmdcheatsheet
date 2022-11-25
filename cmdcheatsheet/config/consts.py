@@ -1,9 +1,6 @@
 import os
 from cmdcheatsheet.config.models import DefaultConfigurations, DefaultConfig
 
-
-VERSION = '0.0.21'
-
 USER_HOME_DIR = os.path.expanduser('~')
 
 CONFIG_DIR = f"{USER_HOME_DIR}/.config/cmdcheatsheet"
