@@ -1,5 +1,5 @@
 from cmdcheatsheet.shared.consts import VERSION
-from cmdcheatsheet.general.logger import version_details
+from cmdcheatsheet.general.display import display_version
 from cmdcheatsheet.shared.models import CommandDetails
 
 
@@ -8,4 +8,4 @@ class Version(CommandDetails):
        super().__init__(['--version', '-v'], 'Display version.')
 
     def handler(self, _):
-        version_details(VERSION)
+        display_version(VERSION)

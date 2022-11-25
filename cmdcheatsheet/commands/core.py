@@ -4,7 +4,7 @@ from dataclasses import asdict
 from cmdcheatsheet.config.core import get_store_location
 from cmdcheatsheet.config.consts import DEFAULT_COMMANDS_STORE_LOCATION
 from cmdcheatsheet.shared.json_file import write_json
-from cmdcheatsheet.shared.logger import info, error
+from cmdcheatsheet.shared.display import display_info, display_error
 from cmdcheatsheet.shared.models import Command
 
 
@@ -42,9 +42,9 @@ def add_command(command):
         command.id = get_index()
         commands.append(command)
         save_commands(commands)
-        info(f"Command '{command.command}' added.")
+        display_info(f"Command '{command.command}' added.")
         return
-    info(f"Command '{command.command}' already exists.")
+    display_info(f"Command '{command.command}' already exists.")
 
 def delete_command(command_id):
     commands = get_commands()
@@ -52,9 +52,9 @@ def delete_command(command_id):
     if command_to_delete is not None:
         commands.remove(command_to_delete)
         save_commands(commands)
-        info(f"Command with id: {command_id} removed.")
+        display_info(f"Command with id: {command_id} removed.")
         return
-    error(f"Command with id: {command_id} not found.")
+    display_error(f"Command with id: {command_id} not found.")
 
 def update_command(command):
     commands = get_commands()
@@ -63,9 +63,9 @@ def update_command(command):
         command_to_update.command = command.command
         command_to_update.description = command.description
         save_commands(commands)
-        info(f"Command with id: {command.id} updated.")
+        display_info(f"Command with id: {command.id} updated.")
         return
-    error(f"Command with id: {command.id} not found.")
+    display_error(f"Command with id: {command.id} not found.")
 
 def find_command_by_name(commands, command_value):
     return next((c for c in commands if c.command == command_value), None)

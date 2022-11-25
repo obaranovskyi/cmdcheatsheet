@@ -1,6 +1,6 @@
 from cmdcheatsheet.alt_store.core import get_applied_alt_store_name
 from cmdcheatsheet.shared.models import CommandDetails
-from cmdcheatsheet.shared.logger import YELLOW, BLUE
+from cmdcheatsheet.shared.display import YELLOW, BLUE
 
 
 class DisplayAppliedAltStoreName(CommandDetails):

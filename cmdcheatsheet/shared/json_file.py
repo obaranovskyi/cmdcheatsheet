@@ -1,5 +1,5 @@
 import json
-from cmdcheatsheet.shared.logger import error
+from cmdcheatsheet.shared.display import display_error
 
 
 def write_json(file_location, json_content):
@@ -7,4 +7,4 @@ def write_json(file_location, json_content):
         with open(file_location, 'w') as file_object:
             json.dump(json_content, file_object, indent=4)
     except Exception as _:
-        error(f"Can't write to {file_location}")
+        display_error(f"Can't write to {file_location}")

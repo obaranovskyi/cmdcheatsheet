@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.logger import display_table_view
+from cmdcheatsheet.commands.display import display_commands_table_view
 from cmdcheatsheet.shared.models import CommandDetails
 
 
@@ -9,4 +9,4 @@ class TableViewCommands(CommandDetails):
             'Display all commands using a table view.')
 
     def handler(self, _):
-        display_table_view()
+        display_commands_table_view()

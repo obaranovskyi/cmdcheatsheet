@@ -3,9 +3,9 @@ RED = "deep_pink2"
 GREEN = "spring_green1"
 YELLOW = "yellow"
 
-def info(message):
+def display_info(message):
     print(f"[{BLUE}]{message}")
 
-def error(message):
+def display_error(message):
     print(f"[{RED}]{message}")
 

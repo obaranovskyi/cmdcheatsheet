@@ -1,7 +1,7 @@
 import os
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.shared.logger import error
+from cmdcheatsheet.shared.display import display_error
 from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.config.consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG 
 
@@ -44,7 +44,7 @@ def remove_config(key):
         return
     config = read_config()
     if key not in config:
-        error("No config was found with such a key.")
+        display_error("No config was found with such a key.")
     else:
         del config[key]
         write_json(CONFIG_LOCATION, config)

@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.logger import display_commands
+from cmdcheatsheet.commands.display import display_command_list
 from cmdcheatsheet.shared.models import CommandDetails
 
 
@@ -9,5 +9,5 @@ class Commands(CommandDetails):
             'Display all commands.')
 
     def handler(self, _):
-        display_commands()
+        display_command_list()
 

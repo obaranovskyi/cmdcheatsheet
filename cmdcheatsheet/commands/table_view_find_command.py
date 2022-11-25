@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.logger import display_table_view
+from cmdcheatsheet.commands.display import display_commands_table_view
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
@@ -10,5 +10,5 @@ class TableViewFindCommand(CommandDetails):
             [CommandArgument('command')])
 
     def handler(self, args):
-        display_table_view(command=args[0])
+        display_commands_table_view(command=args[0])
 

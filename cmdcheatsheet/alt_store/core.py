@@ -1,7 +1,7 @@
 from cmdcheatsheet.config.core import read_config, set_config_value
 from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.config.consts import *
-from cmdcheatsheet.alt_store.logger import display_alt_store
+from cmdcheatsheet.alt_store.display import display_alt_store_list
 
 
 def add_alt_store(alt_store):
@@ -36,7 +36,7 @@ def exclude_by_name_filter(alt_stores, store_name):
     return [store for store in alt_stores if store.get(ALT_STORE_NAME_CONF) != store_name]
 
 def display_alt_stores():
-    display_alt_store(read_config().get(ALT_STORES_CONF))
+    display_alt_store_list(read_config().get(ALT_STORES_CONF))
 
 def find_alt_store_by_name(store_name):
     config = read_config()

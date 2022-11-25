@@ -1,7 +1,7 @@
 #!/bin/python3
 import sys
 
-from cmdcheatsheet.shared.logger import error
+from cmdcheatsheet.shared.display import display_error
 from cmdcheatsheet.general.core import get_command_by_name, is_help_action
 from cmdcheatsheet.config.core import setup_config
 from cmdcheatsheet.commands.core import setup_commands_store_config
@@ -37,10 +37,10 @@ def main():
 
             command_to_invoke.handle(args)
         else:
-            error("Please provide the valid command name.")
+            display_error("Please provide the valid command name.")
 
     except Exception as e:
-        error(e)
+        display_error(e)
 
 if __name__ == '__main__':
     main()
