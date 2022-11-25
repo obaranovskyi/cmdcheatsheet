@@ -1,4 +1,4 @@
-from cmdcheatsheet.command import delete_command
+from cmdcheatsheet.commands.core import delete_command
 from cmdcheatsheet.models import CommandArgument, CommandDetails
 
 

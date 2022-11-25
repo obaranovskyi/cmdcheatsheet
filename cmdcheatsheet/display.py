@@ -1,8 +1,11 @@
-from cmdcheatsheet.command import group_commands_by_name
+from cmdcheatsheet.commands.core import group_commands_by_name
 from cmdcheatsheet.consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF
-from cmdcheatsheet.store import get_commands, get_commands_by_includes_command_name
-from cmdcheatsheet.logger import error, command_details, config_details, alt_store_details
-from cmdcheatsheet.configuration import read_config, DEFAULT_CONFIG
+from cmdcheatsheet.commands.core import get_commands, get_commands_by_includes_command_name
+from cmdcheatsheet.commands.logger import command_details
+from cmdcheatsheet.shared.logger import error
+from cmdcheatsheet.config.logger import config_details
+from cmdcheatsheet.alt_store.logger import alt_store_details
+from cmdcheatsheet.config.core import read_config, DEFAULT_CONFIG
 
 
 def display_commands(display_index=False):

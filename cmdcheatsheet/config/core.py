@@ -1,8 +1,8 @@
 import os
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.logger import error
-from cmdcheatsheet.json_file import write_json
+from cmdcheatsheet.shared.logger import error
+from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG 
 
 

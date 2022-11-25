@@ -1,6 +1,6 @@
-from cmdcheatsheet.alt_store_core import get_applied_alt_store_name
+from cmdcheatsheet.alt_store.core import get_applied_alt_store_name
 from cmdcheatsheet.models import CommandDetails
-from cmdcheatsheet.logger import yellow, blue
+from cmdcheatsheet.shared.logger import YELLOW, BLUE
 
 
 class DisplayAppliedAltStoreName(CommandDetails):
@@ -12,6 +12,6 @@ class DisplayAppliedAltStoreName(CommandDetails):
     def handler(self, _):
         applied_store_name = get_applied_alt_store_name()
         if applied_store_name: 
-            print(f"[{blue}]{applied_store_name}")
+            print(f"[{BLUE}]{applied_store_name}")
         else:
-            print(f"[{yellow}]None of the alternative stores were applied.")
+            print(f"[{YELLOW}]None of the alternative stores were applied.")

@@ -1,5 +1,5 @@
-from cmdcheatsheet.configuration import read_config, set_config_value
-from cmdcheatsheet.json_file import write_json
+from cmdcheatsheet.config.core import read_config, set_config_value
+from cmdcheatsheet.shared.json_file import write_json
 from cmdcheatsheet.consts import *
 from cmdcheatsheet.display import display_alt_store
 

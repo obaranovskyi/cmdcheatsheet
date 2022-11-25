@@ -1,5 +1,5 @@
 from rich.prompt import Confirm
-from cmdcheatsheet.configuration import set_single_config_value_to_default
+from cmdcheatsheet.config.core import set_single_config_value_to_default
 from cmdcheatsheet.models import CommandArgument, CommandDetails
 
 

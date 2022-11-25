@@ -1,5 +1,11 @@
-from cmdcheatsheet.store import get_commands, save_commands, get_index
-from cmdcheatsheet.logger import info, error
+import json
+import os
+from dataclasses import asdict
+from cmdcheatsheet.config.core import get_store_location
+from cmdcheatsheet.consts import DEFAULT_COMMANDS_STORE_LOCATION
+from cmdcheatsheet.shared.json_file import write_json
+from cmdcheatsheet.shared.logger import info, error
+from cmdcheatsheet.models import Command
 
 
 def command_to_name(command):
@@ -67,4 +73,33 @@ def find_command_by_name(commands, command_value):
 
 def find_command_by_id(commands, id):
     return next((c for c in commands if c.id == id), None)
+
+def get_commands():
+    with open(get_store_location()) as f:
+      commands = json.load(f)
+    return [Command(c.get('command'), c.get('description'), c.get('id')) for c in commands]
+
+def get_index():
+    commands = get_commands()
+    if not commands:
+        return 1
+    else:
+        last_command = commands[-1]
+        return last_command.id + 1
+
+def get_commands_by_includes_command_name(command_name):
+    commands = []
+    for command in get_commands():
+        command_split = command.command.replace(',', '').split(' ')
+        if command_name in command_split:
+            commands.append(command)
+    return commands
+
+def save_commands(commands):
+    commands_to_save = [asdict(c) for c in commands]
+    write_json(get_store_location(), commands_to_save)
+
+def setup_commands_store_config():
+    if not os.path.exists(DEFAULT_COMMANDS_STORE_LOCATION):
+        write_json(get_store_location(), [])
 

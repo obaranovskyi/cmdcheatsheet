@@ -1,5 +1,5 @@
 from cmdcheatsheet.consts import VERSION
-from cmdcheatsheet.logger import version_details
+from cmdcheatsheet.general.logger import version_details
 from cmdcheatsheet.models import CommandDetails
 
 

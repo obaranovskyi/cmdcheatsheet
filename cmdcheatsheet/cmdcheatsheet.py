@@ -1,10 +1,10 @@
 #!/bin/python3
 import sys
 
-from cmdcheatsheet.logger import error
+from cmdcheatsheet.shared.logger import error
 from cmdcheatsheet.actions import get_command_by_name
-from cmdcheatsheet.configuration import setup_config
-from cmdcheatsheet.store import setup_commands_store_config
+from cmdcheatsheet.config.core import setup_config
+from cmdcheatsheet.commands.core import setup_commands_store_config
 
 
 def main():

@@ -1,5 +1,5 @@
-from cmdcheatsheet.general import *
+from cmdcheatsheet.general.version import Version
 
 general_actions = [
-    version.Version()
+    Version()
 ]

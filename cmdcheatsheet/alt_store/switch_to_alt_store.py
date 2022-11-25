@@ -1,5 +1,5 @@
 from rich.prompt import Confirm
-from cmdcheatsheet.alt_store_core import is_existing_store_name, switch_to_alt_store
+from cmdcheatsheet.alt_store.core import is_existing_store_name, switch_to_alt_store
 from cmdcheatsheet.consts import CURR_STORE_LOCATION_CONF
 from cmdcheatsheet.messages import show_store_with_name_not_exists
 from cmdcheatsheet.models import CommandArgument, CommandDetails
