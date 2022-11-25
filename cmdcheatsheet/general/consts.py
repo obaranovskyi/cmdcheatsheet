@@ -1,0 +1,1 @@
+HELP_RESPONSIBLE_COMMANDS = ['--help', '-h']
