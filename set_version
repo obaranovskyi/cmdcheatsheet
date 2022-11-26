@@ -9,7 +9,7 @@ if [ ! -z "$version_from" ] && [ ! -z "$version_to" ];
 then
   sed -i '' "s/${version_from}/${version_to}/g" setup.cfg
   sed -i '' "s/${version_from}/${version_to}/g" setup.py
-  sed -i '' "s/${version_from}/${version_to}/g" cmdcheatsheet/consts.py
+  sed -i '' "s/${version_from}/${version_to}/g" cmdcheatsheet/shared/consts.py
   is_version_updated=true
 else
   echo "Please provide all arguments."

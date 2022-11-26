@@ -1,14 +1,14 @@
 #!/bin/python3
 import sys
 
-from cmdcheatsheet.shared.display import display_error
-from cmdcheatsheet.general.core import get_command_by_name, is_help_action
-from cmdcheatsheet.config.core import setup_config
-from cmdcheatsheet.commands.core import setup_commands_store_config
-from cmdcheatsheet.commands.actions import command_actions
-from cmdcheatsheet.general.actions import general_actions
-from cmdcheatsheet.config.actions import config_actions
-from cmdcheatsheet.alt_store.actions import alt_store_actions
+from .shared.display import display_error
+from .general.core import get_command_by_name, is_help_action
+from .config.core import setup_config
+from .commands.core import setup_commands_store_config
+from .commands.actions import command_actions
+from .general.actions import general_actions
+from .config.actions import config_actions
+from .alt_store.actions import alt_store_actions
 
 
 def main():

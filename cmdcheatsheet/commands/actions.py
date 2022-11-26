@@ -1,5 +1,3 @@
-from cmdcheatsheet.commands import *
-
 from cmdcheatsheet.commands.commands import Commands
 from cmdcheatsheet.commands.detailed_commands import DetailedCommands
 from cmdcheatsheet.commands.table_view_commands import TableViewCommands
