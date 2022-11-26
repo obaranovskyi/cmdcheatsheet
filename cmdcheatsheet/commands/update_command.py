@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.core import update_command
+from .core import update_command
 from cmdcheatsheet.shared.models import Command, CommandArgument, CommandDetails
 
 

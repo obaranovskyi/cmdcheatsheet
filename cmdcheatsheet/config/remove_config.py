@@ -1,4 +1,4 @@
-from cmdcheatsheet.config.core import remove_config
+from .core import remove_config
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 

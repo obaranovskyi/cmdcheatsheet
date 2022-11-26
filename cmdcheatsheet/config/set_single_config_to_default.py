@@ -1,6 +1,6 @@
 from rich.prompt import Confirm
-from cmdcheatsheet.config.core import set_single_config_value_to_default
-from cmdcheatsheet.config.validators import is_valid_config_key
+from .core import set_single_config_value_to_default
+from .validators import is_valid_config_key
 from cmdcheatsheet.shared.display import display_error
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 

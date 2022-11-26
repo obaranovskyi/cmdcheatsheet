@@ -1,6 +1,6 @@
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.config.consts import CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG
+from .consts import CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG
 from cmdcheatsheet.shared.messages import show_invalid_store_location_message
 
 

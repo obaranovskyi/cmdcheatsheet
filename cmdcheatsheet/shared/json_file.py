@@ -1,5 +1,5 @@
 import json
-from cmdcheatsheet.shared.display import display_error
+from .display import display_error
 
 
 def write_json(file_location, json_content):

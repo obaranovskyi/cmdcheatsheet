@@ -1,5 +1,5 @@
 import os
-from cmdcheatsheet.config.models import DefaultConfigurations, DefaultConfig
+from .models import DefaultConfigurations, DefaultConfig
 
 USER_HOME_DIR = os.path.expanduser('~')
 

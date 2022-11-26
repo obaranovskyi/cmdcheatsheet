@@ -1,4 +1,4 @@
-from cmdcheatsheet.alt_store.core import display_alt_stores
+from .core import display_alt_stores
 from cmdcheatsheet.shared.models import CommandDetails
 
 

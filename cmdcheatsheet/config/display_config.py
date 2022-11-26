@@ -1,4 +1,4 @@
-from cmdcheatsheet.config.display import display_config
+from .display import display_config
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 

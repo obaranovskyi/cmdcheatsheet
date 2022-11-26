@@ -1,5 +1,5 @@
-from cmdcheatsheet.general.version import Version
-from cmdcheatsheet.general.help import Help
+from .version import Version
+from .help import Help
 
 general_actions = [
     Version(),

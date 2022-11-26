@@ -1,5 +1,5 @@
+from .display import display_version
 from cmdcheatsheet.shared.consts import VERSION
-from cmdcheatsheet.general.display import display_version
 from cmdcheatsheet.shared.models import CommandDetails
 
 

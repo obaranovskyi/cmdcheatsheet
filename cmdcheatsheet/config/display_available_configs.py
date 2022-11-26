@@ -1,4 +1,4 @@
-from cmdcheatsheet.config.display import display_available_configs
+from .display import display_available_configs
 from cmdcheatsheet.shared.models import CommandDetails
 
 

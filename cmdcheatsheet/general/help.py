@@ -1,5 +1,5 @@
-from cmdcheatsheet.general.consts import HELP_RESPONSIBLE_COMMANDS
-from cmdcheatsheet.general.core import help as program_help
+from .consts import HELP_RESPONSIBLE_COMMANDS
+from .core import help as program_help
 from cmdcheatsheet.shared.models import CommandDetails
 
 

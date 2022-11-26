@@ -1,4 +1,4 @@
-from cmdcheatsheet.shared.display import display_error
+from .display import display_error
 
 def show_invalid_store_location_message():
     display_error("Something is wrong with your JSON file. The issue might appear due to the following:\n" +

@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.display import display_command_list
+from .display import display_command_list
 from cmdcheatsheet.shared.models import CommandDetails
 
 

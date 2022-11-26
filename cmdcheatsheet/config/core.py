@@ -3,7 +3,7 @@ import json
 from rich.prompt import Confirm
 from cmdcheatsheet.shared.display import display_error
 from cmdcheatsheet.shared.json_file import write_json
-from cmdcheatsheet.config.consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG 
+from .consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG 
 
 
 def setup_config():

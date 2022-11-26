@@ -1,6 +1,6 @@
 from rich import print
-from cmdcheatsheet.config.core import read_config
-from cmdcheatsheet.config.consts import DEFAULT_CONFIG
+from .core import read_config
+from .consts import DEFAULT_CONFIG
 from cmdcheatsheet.shared.display import BLUE, GREEN, display_error
 
 def display_config(key=''): 

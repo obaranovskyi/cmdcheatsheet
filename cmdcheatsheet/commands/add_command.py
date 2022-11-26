@@ -1,4 +1,4 @@
-from cmdcheatsheet.commands.core import add_command
+from .core import add_command
 from cmdcheatsheet.shared.models import Command, CommandArgument, CommandDetails
 
 

@@ -1,5 +1,5 @@
-from cmdcheatsheet.alt_store.core import delete_alt_store, is_existing_store_name
-from cmdcheatsheet.alt_store.messages import show_store_with_name_not_exists
+from .core import delete_alt_store, is_existing_store_name
+from .messages import show_store_with_name_not_exists
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
