@@ -4,8 +4,11 @@ from cmdcheatsheet.config.consts import CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG
 from cmdcheatsheet.shared.messages import show_invalid_store_location_message
 
 
+def is_valid_config_key(config_key):
+    return config_key in DEFAULT_CONFIG.configuration_keys()
+
 def validate_configuration(config_key, config_value):
-    exists = config_key in DEFAULT_CONFIG.configuration_keys()
+    exists = is_valid_config_key(config_key)
     valid = True
     if not exists:
         valid = Confirm.ask(

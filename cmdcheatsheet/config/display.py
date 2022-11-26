@@ -20,6 +20,8 @@ def display_available_configs():
 
 def display_configs(config_key, config_value):
     if isinstance(config_value, list):
+        if not config_value:
+            return
         print(f"[{BLUE}] {config_key}:")
         for config_dict in config_value:
             print(f"[{BLUE}]   {'-'*5}")
