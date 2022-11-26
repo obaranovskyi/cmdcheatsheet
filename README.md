@@ -9,8 +9,6 @@ Is a terminal command tool 🖥 that helps to store commands you don't want to k
 
 ![](./images/base-usage.png)
 
----
-
 #### Help command
 ```bash
 cmdcheatsheet -h
