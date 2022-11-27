@@ -18,6 +18,9 @@ def display_available_configs():
     for config in DEFAULT_CONFIG.configs:
         display_configs(config.key, config.desc)
 
+# TODO: Here should be refactored to use tree instead:
+# INFO: https://rich.readthedocs.io/en/stable/tree.html#examples
+# INFO: My example: /Users/obaranovskyi/workspaces/python-workspaces/rich_tree
 def display_configs(config_key, config_value):
     if isinstance(config_value, list):
         if not config_value:
