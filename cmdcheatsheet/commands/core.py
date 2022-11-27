@@ -88,12 +88,8 @@ def get_index():
         return last_command.id + 1
 
 def get_commands_by_includes_command_name(command_name):
-    commands = []
-    for command in get_commands():
-        command_split = command.command.replace(',', '').split(' ')
-        if command_name in command_split:
-            commands.append(command)
-    return commands
+    return [c for c in get_commands()
+            if command_name in c.command.replace(',', '').split(' ')]
 
 def save_commands(commands):
     commands_to_save = [asdict(c) for c in commands]
