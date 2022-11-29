@@ -87,7 +87,7 @@ def get_index():
         last_command = commands[-1]
         return last_command.id + 1
 
-def get_commands_by_includes_command_name(command_name):
+def find_command_by_name(command_name):
     return [c for c in get_commands()
             if command_name in c.command.replace(',', '').split(' ')]
 
