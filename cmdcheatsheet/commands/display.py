@@ -4,6 +4,7 @@ from rich.table import Table
 from cmdcheatsheet.commands.core import get_command_name_list, get_commands, find_command_by_name, group_commands_by_name
 from cmdcheatsheet.shared.display import BLUE, GREEN, RED, YELLOW, display_error
 
+
 def display_command_by_name(command_name, display_index=False):
     commands_to_display = find_command_by_name(command_name)
     if commands_to_display:
