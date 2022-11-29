@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
 
+
 @dataclass
 class DefaultConfig:
     key: str
@@ -22,3 +23,15 @@ class DefaultConfigurations:
 
     def configuration_keys(self):
         return [config.key for config in self.configs]
+
+@dataclass
+class DisplayStrategy:
+    config_key: str
+    config_value: Any
+
+    def need_to_handle(self, config_key: str) -> bool:
+        return self.config_key == config_key
+
+    def display(self) -> None:
+        raise NotImplementedError
+
