@@ -70,7 +70,6 @@ def update_command(command):
 def find_command_by_name(commands, command_value):
     return next((c for c in commands if c.command == command_value), None)
 
-
 def find_command_by_id(commands, id):
     return next((c for c in commands if c.id == id), None)
 
@@ -87,7 +86,7 @@ def get_index():
         last_command = commands[-1]
         return last_command.id + 1
 
-def find_command_by_name(command_name):
+def get_command_by_name(command_name):
     return [c for c in get_commands()
             if command_name in c.command.replace(',', '').split(' ')]
 

@@ -1,12 +1,12 @@
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from cmdcheatsheet.commands.core import get_command_name_list, get_commands, find_command_by_name, group_commands_by_name
+from cmdcheatsheet.commands.core import get_command_name_list, get_commands, get_command_by_name, group_commands_by_name
 from cmdcheatsheet.shared.display import BLUE, GREEN, RED, YELLOW, display_error
 
 
 def display_command_by_name(command_name, display_index=False):
-    commands_to_display = find_command_by_name(command_name)
+    commands_to_display = get_command_by_name(command_name)
     if commands_to_display:
         id_column_size = calc_id_column_size(commands_to_display)
         for command in commands_to_display:
@@ -41,7 +41,7 @@ def calc_id_column_size(commands):
     return len(str(highest_command_id))
 
 def display_commands_table_view(command=''):
-    all_commands = find_command_by_name(command) if command else get_commands()
+    all_commands = get_command_by_name(command) if command else get_commands()
     console = Console()
     table = Table(show_header=True, header_style=RED)
     table.add_column("Id")
