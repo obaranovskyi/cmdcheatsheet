@@ -18,22 +18,22 @@ def find_display_handler(config_key):
         (ds for ds in DISPLAY_STRATEGIES if ds.need_to_handle(config_key)),
         None)
 
-def display_config(key=''): 
-    config = read_config()
+def display_configs(key=''): 
     if key:
         if key in DEFAULT_CONFIG.configuration_keys():
-            display_configs(key)
+            display_single_config(key)
         else:
             display_error(f"No configuration found with the name {key}")
     else:
+        config = read_config()
         for key in config:
-            display_configs(key)
+            display_single_config(key)
 
 def display_available_configs():
     for config in DEFAULT_CONFIG.configs:
         print(f"[{BLUE}]{config.key}[{GREEN}]: {config.desc}")
 
-def display_configs(config_key):
+def display_single_config(config_key):
     handler = find_display_handler(config_key)
     handler.display()
 

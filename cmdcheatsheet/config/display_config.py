@@ -1,4 +1,4 @@
-from .display import display_config
+from .display import display_configs
 from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
 
 
@@ -11,6 +11,6 @@ class DisplayConfig(CommandDetails):
 
     def handler(self, args):
         if args:
-            display_config(args[0])
+            display_configs(args[0])
         else:
-            display_config()
+            display_configs()
