@@ -1,19 +1,20 @@
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from cmdcheatsheet.commands.core import get_command_name_list, get_commands, get_command_by_name, group_commands_by_name
-from cmdcheatsheet.shared.display import BLUE, GREEN, RED, YELLOW, display_error
+from .core import *
+from cmdcheatsheet.shared.display import *
+from .messages import show_command_not_found
 
 
-def display_command_by_name(command_name, display_index=False):
-    commands_to_display = get_command_by_name(command_name)
+def display_command_by_name(query, display_index=False, is_global=False):
+    commands_to_display = get_command_by_name(query, is_global)
     if commands_to_display:
         id_column_size = calc_id_column_size(commands_to_display)
         for command in commands_to_display:
-            display_find_command(command_name, command,
-                display_index, id_column_size)
+            display_find_command(query, command,
+                display_index, id_column_size, is_global)
     else:
-        display_error("Command not found.")
+        show_command_not_found()
 
 def display_command_list(display_index=False):
     command_dict = group_commands_by_name()
@@ -22,10 +23,13 @@ def display_command_list(display_index=False):
         for item in value:
             display_command(item, display_index, id_column_size)
 
-def display_find_command(search_query, command, display_index, id_column_length=5):
+def display_find_command(query, command, display_index, id_column_length, is_global):
     index_cell = get_index_content(command.id, display_index, id_column_length)
-    command_name = f"{command.command}".replace(search_query, f"[{RED}]{search_query}[{BLUE}]")
-    print(f"{index_cell}[{BLUE}] {command_name}[{GREEN}] - {command.description}")
+    command_name = highlight_find_results(command.command, query)
+    command_description = command.description
+    if is_global:
+        command_description = highlight_find_results(command.description, query, GREEN)
+    print(f"{index_cell}[{BLUE}] {command_name}[{GREEN}] - {command_description}")
 
 def display_command(command, display_index, id_column_length=5):
     index_cell = get_index_content(command.id, display_index, id_column_length)
@@ -40,18 +44,20 @@ def calc_id_column_size(commands):
     highest_command_id = max(command_ids) if command_ids else ""
     return len(str(highest_command_id))
 
-def display_commands_table_view(command=''):
-    all_commands = get_command_by_name(command) if command else get_commands()
+def display_commands_table_view(query=''):
+    all_commands = get_command_by_name(query, True) if query else get_commands()
     console = Console()
     table = Table(show_header=True, header_style=RED)
     table.add_column("Id")
     table.add_column("Command")
     table.add_column("Description")
     for c in all_commands:
+        command = highlight_find_results(c.command, query)
+        description = highlight_find_results(c.description, query, GREEN)
         table.add_row(
             f'[{YELLOW}]{str(c.id)}',
-            f'[{BLUE}]{c.command}',
-            f'[{GREEN}]{c.description}'
+            f'[{BLUE}]{command}',
+            f'[{GREEN}]{description}'
         )
     console.print(table)
 

@@ -27,22 +27,24 @@ here is the output:
   --delete <id>, -d <id> - Delete a <command> by id.
   --find <command>, -f <command> - Search for a command.
   --find-info <command>, -fi <command> - Search for a command and include all details, such as ids, etc.
+  --global-find <command>, -gf <command> - Global search.
+  --detailed-global-find <command>, -gfi <command> - Search globally for a command and include all details, such as ids, etc.
   --find-table <command>, -ft <command> - Search for a command and show it using a table view.
   --available-command-names <number_of_columns:optional>, -acn <number_of_columns:optional> - Show all stored command names.
-  --help, -h - Show a program help notes.
   --version, -v - Display version.
-  --display-configs <key:optional>, -dc <key:optional> - Display configurations.
+  --help, -h - Show a program help notes.
   --display-available-configs, -dac - Display available configurations.
-  --set-config <key> <value>, -sc <key> <value> - Set config.
+  --display-configs <key:optional>, -dc <key:optional> - Display configurations.
   --remove-config <key>, -rc <key> - Remove a config.
+  --set-config <key> <value>, -sc <key> <value> - Set config.
   --set-config-to-default, -sctd - Set the configuration to default.
   --set-single-config-to-default <key>, -ssctd <key> - Set a single configuration to default.
   --add-alternative-store <store_name> <store_location>, -aas <store_name> <store_location> - Add alternative commands store (JSON file) location.
-  --update-alternative-store <store_name> <store_location>, -uas <store_name> <store_location> - Update alternative commands store (JSON file).
   --delete-alternative-store <store_name>, -das <store_name> - Delete alternative commands store (JSON file).
+  --display-applied-alternative-store-name, -daasn - Display the name of applied alternative store.
   --display-available-alternative-stores, -daas - Display available alternative stores.
   --switch-to-alternative-store <store_name>, -stas <store_name> - Switch to alternative store location.
-  --display-applied-alternative-store-name, -daasn - Display the name of applied alternative store.
+  --update-alternative-store <store_name> <store_location>, -uas <store_name> <store_location> - Update alternative commands store (JSON file).
 ```
 
 #### Add command
@@ -83,6 +85,14 @@ cmdcheatsheet -fi <command>
 Search for a command and show it using the table view:
 ```bash
 cmdcheatsheet -ft <command>
+```
+Global search includes search by command or description:
+```bash
+cmdcheatsheet -gf <query>
+```
+Global search and show it along with an id:
+```bash
+cmdcheatsheet -gfi <query>
 ```
 
 #### Update command

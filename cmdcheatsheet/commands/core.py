@@ -86,9 +86,15 @@ def get_index():
         last_command = commands[-1]
         return last_command.id + 1
 
-def get_command_by_name(command_name):
-    return [c for c in get_commands()
-            if command_name in c.command.replace(',', '').split(' ')]
+def get_command_by_name(query, is_global):
+    commands = get_commands()
+    if is_global:
+        return [c for c in commands
+                if query in c.command or \
+                   query in c.description]
+    else:
+        return [c for c in commands
+                if query in c.command.replace(',', '').split(' ')]
 
 def save_commands(commands):
     commands_to_save = [asdict(c) for c in commands]

@@ -10,5 +10,5 @@ class DetailedFindCommand(CommandDetails):
             [CommandArgument('command')])
 
     def handler(self, args):
-        display_command_by_name(args[0], True)
+        display_command_by_name(query=args[0], display_index=True)
 

@@ -10,5 +10,5 @@ class TableViewFindCommand(CommandDetails):
             [CommandArgument('command')])
 
     def handler(self, args):
-        display_commands_table_view(command=args[0])
+        display_commands_table_view(query=args[0])
 

@@ -10,6 +10,6 @@ class FindCommand(CommandDetails):
             [CommandArgument('command')])
 
     def handler(self, args):
-        display_command_by_name(args[0])
+        display_command_by_name(query=args[0])
 
 

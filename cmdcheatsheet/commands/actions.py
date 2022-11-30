@@ -1,3 +1,5 @@
+from .detailed_global_find_command import DetailedGlobalFindCommand
+from .global_find_command import GlobalFindCommand
 from .commands import Commands
 from .detailed_commands import DetailedCommands
 from .table_view_commands import TableViewCommands
@@ -18,6 +20,8 @@ command_actions = [
     DeleteCommand(),
     FindCommand(),
     DetailedFindCommand(),
+    GlobalFindCommand(),
+    DetailedGlobalFindCommand(),
     TableViewFindCommand(),
     AvailableCommandNames()
 ]
