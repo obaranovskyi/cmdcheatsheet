@@ -1,7 +1,7 @@
 from rich import print
 from .core import get_applied_alt_store_name
-from cmdcheatsheet.shared.models import CommandDetails
-from cmdcheatsheet.shared.display import YELLOW, BLUE
+from ..shared.models import CommandDetails
+from ..shared.display import YELLOW, BLUE
 
 
 class DisplayAppliedAltStoreName(CommandDetails):

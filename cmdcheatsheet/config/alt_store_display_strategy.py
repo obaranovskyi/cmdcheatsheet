@@ -3,7 +3,7 @@ from rich.tree import Tree
 from .consts import ALT_STORE_LOCATION_CONF, ALT_STORE_NAME_CONF, ALT_STORES_CONF
 from .core import read_config
 from .models import DisplayStrategy
-from cmdcheatsheet.shared.display import BLUE, GREEN
+from ..shared.display import BLUE, GREEN
 
 
 class AltStoreDisplayStrategy(DisplayStrategy):

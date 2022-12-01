@@ -1,9 +1,9 @@
 from rich.prompt import Confirm
 from .core import add_alt_store, is_existing_store_name, update_alt_store
 from .models import AlternativeStore
-from cmdcheatsheet.shared.messages import show_invalid_store_location_message
-from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
-from cmdcheatsheet.config.validators import is_valid_custom_commands_location
+from ..shared.messages import show_invalid_store_location_message
+from ..shared.models import CommandArgument, CommandDetails
+from ..config.validators import is_valid_custom_commands_location
 
 
 class AddAltStore(CommandDetails):

@@ -1,9 +1,9 @@
 import os
 import json
 from rich.prompt import Confirm
-from cmdcheatsheet.shared.display import display_error
-from cmdcheatsheet.shared.json_file import write_json
 from .consts import CONFIG_LOCATION, CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG 
+from ..shared.display import display_error
+from ..shared.json_file import write_json
 
 
 def setup_config():

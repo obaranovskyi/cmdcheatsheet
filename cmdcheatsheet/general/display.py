@@ -1,5 +1,5 @@
 from rich import print
-from cmdcheatsheet.shared.display import BLUE, GREEN
+from ..shared.display import BLUE, GREEN
 
 
 def display_version(current_version):

@@ -1,8 +1,8 @@
 from rich.prompt import Confirm
 from .core import set_single_config_value_to_default
 from .validators import is_valid_config_key
-from cmdcheatsheet.shared.display import display_error
-from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
+from ..shared.display import display_error
+from ..shared.models import CommandArgument, CommandDetails
 
 
 class SetSingleConfigToDefault(CommandDetails):

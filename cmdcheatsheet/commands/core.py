@@ -1,11 +1,11 @@
 import json
 import os
 from dataclasses import asdict
-from cmdcheatsheet.config.core import get_store_location
-from cmdcheatsheet.config.consts import DEFAULT_COMMANDS_STORE_LOCATION
-from cmdcheatsheet.shared.json_file import write_json
-from cmdcheatsheet.shared.display import display_info, display_error
-from cmdcheatsheet.shared.models import Command
+from ..config.core import get_store_location
+from ..config.consts import DEFAULT_COMMANDS_STORE_LOCATION
+from ..shared.json_file import write_json
+from ..shared.display import display_info, display_error
+from ..shared.models import Command
 
 
 def command_to_name(command):

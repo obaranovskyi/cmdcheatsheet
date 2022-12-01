@@ -3,7 +3,7 @@ from .alt_store_display_strategy import AltStoreDisplayStrategy
 from .default_display_strategy import DefaultDisplayStrategy
 from .core import read_config
 from .consts import DEFAULT_CONFIG, CURR_STORE_LOCATION_CONF
-from cmdcheatsheet.shared.display import BLUE, GREEN, display_error
+from ..shared.display import BLUE, GREEN, display_error
 
 DISPLAY_STRATEGIES = [
     DefaultDisplayStrategy(

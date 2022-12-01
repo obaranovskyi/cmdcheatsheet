@@ -2,8 +2,8 @@ from rich import print
 from rich.console import Console
 from rich.table import Table
 from .core import *
-from cmdcheatsheet.shared.display import *
 from .messages import show_command_not_found
+from ..shared.display import *
 
 
 def display_command_by_name(query, display_index=False, is_global=False):

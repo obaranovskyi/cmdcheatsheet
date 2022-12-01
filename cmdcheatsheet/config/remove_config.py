@@ -1,5 +1,5 @@
 from .core import remove_config
-from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
+from ..shared.models import CommandArgument, CommandDetails
 
 
 class RemoveConfig(CommandDetails):

@@ -1,6 +1,6 @@
 from .core import delete_alt_store, is_existing_store_name
 from .messages import show_store_with_name_not_exists
-from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
+from ..shared.models import CommandArgument, CommandDetails
 
 
 class DeleteAltStore(CommandDetails):

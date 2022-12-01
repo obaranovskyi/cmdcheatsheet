@@ -1,5 +1,5 @@
 from .display import display_command_list
-from cmdcheatsheet.shared.models import CommandDetails
+from ..shared.models import CommandDetails
 
 
 class DetailedCommands(CommandDetails):

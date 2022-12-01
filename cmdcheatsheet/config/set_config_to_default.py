@@ -1,6 +1,6 @@
 from rich.prompt import Confirm
 from .core import set_config_to_default
-from cmdcheatsheet.shared.models import CommandDetails
+from ..shared.models import CommandDetails
 
 
 class SetConfigToDefault(CommandDetails):

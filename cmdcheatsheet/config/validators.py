@@ -1,7 +1,7 @@
 import json
 from rich.prompt import Confirm
 from .consts import CURR_STORE_LOCATION_CONF, DEFAULT_CONFIG
-from cmdcheatsheet.shared.messages import show_invalid_store_location_message
+from ..shared.messages import show_invalid_store_location_message
 
 
 def is_valid_config_key(config_key):

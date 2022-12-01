@@ -1,6 +1,6 @@
 from .display import display_version
-from cmdcheatsheet.shared.consts import VERSION
-from cmdcheatsheet.shared.models import CommandDetails
+from ..shared.consts import VERSION
+from ..shared.models import CommandDetails
 
 
 class Version(CommandDetails):

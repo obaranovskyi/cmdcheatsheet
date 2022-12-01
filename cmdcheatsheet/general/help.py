@@ -1,6 +1,6 @@
 from .consts import HELP_RESPONSIBLE_COMMANDS
 from .core import help as program_help
-from cmdcheatsheet.shared.models import CommandDetails
+from ..shared.models import CommandDetails
 
 
 class Help(CommandDetails):

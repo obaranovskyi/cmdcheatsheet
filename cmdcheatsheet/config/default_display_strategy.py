@@ -1,6 +1,6 @@
 from rich import print
 from .models import DisplayStrategy
-from cmdcheatsheet.shared.display import BLUE, GREEN
+from ..shared.display import BLUE, GREEN
 
 
 class DefaultDisplayStrategy(DisplayStrategy):

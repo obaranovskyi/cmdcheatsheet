@@ -1,7 +1,7 @@
 from .display import display_alt_store_list
-from cmdcheatsheet.config.core import read_config, set_config_value
-from cmdcheatsheet.shared.json_file import write_json
-from cmdcheatsheet.config.consts import *
+from ..config.core import read_config, set_config_value
+from ..shared.json_file import write_json
+from ..config.consts import *
 
 
 def add_alt_store(alt_store):

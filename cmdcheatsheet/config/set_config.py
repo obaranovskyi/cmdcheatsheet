@@ -1,6 +1,6 @@
 from .core import set_config_value
 from .validators import validate_configuration
-from cmdcheatsheet.shared.models import CommandArgument, CommandDetails
+from ..shared.models import CommandArgument, CommandDetails
 
 
 class SetConfig(CommandDetails):
