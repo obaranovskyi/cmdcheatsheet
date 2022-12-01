@@ -13,8 +13,8 @@ def setup_config():
 
 def read_config():
     with open(CONFIG_LOCATION) as f:
-      config = json.load(f)
-    return config
+        config = json.load(f)
+        return config
 
 def get_store_location():
     config = read_config()
