@@ -205,3 +205,11 @@ cmdcheatsheet -stas <store_name>
 ```bash
 cmdcheatsheet -daasn
 ```
+
+### Dependencies
+**Note:** that will include **[Rich](https://rich.readthedocs.io/)**.
+Rich is a library to display information on the terminal, it is required, and when installed, it's deeply integrated into **cmdcheatsheet** to display beautiful output.
+
+### License
+
+This project is licensed under the terms of the MIT license.
