@@ -1,5 +1,6 @@
 import json
 import os
+from functools import reduce
 from dataclasses import asdict
 from ..config.core import get_store_location
 from ..config.consts import DEFAULT_COMMANDS_STORE_LOCATION
@@ -9,20 +10,22 @@ from ..shared.models import Command
 
 
 def command_to_name(command):
-    command_split = command.split(' ')
-    command_name = command_split[1] if command_split[0] == 'sudo' else command_split[0]
-    if command_name.endswith(','):
-        command_name = command_name.replace(',', '')
+    command_name = skip_sudo(command).replace(',', '')
     return command_name
 
+def skip_sudo(command_name):
+    split_list = command_name.split(' ')
+    first = split_list[0]
+    name = split_list[1] if first == 'sudo' else first
+    return name
+
 def get_command_name_list():
-    commands = get_commands()
-    command_names = []
-    for command in commands:
-        command_name = command_to_name(command.command)
-        if command_name not in command_names:
-            command_names.append(command_name)
-    return command_names
+    return reduce(
+        lambda acc, c: 
+            acc+[command_to_name(c.command)]
+                if command_to_name(c.command) not in acc
+                else acc,
+        get_commands(), [])
 
 def group_commands_by_name():
     commands = get_commands()
